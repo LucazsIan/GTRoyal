@@ -1,0 +1,15 @@
+# Laravel
+api/vendor/
+api/node_modules/
+api/.env
+api/public/storage
+api/storage/*.key
+api/.idea/
+api/.vscode/
+
+# Frontend
+frontend/node_modules/
+
+# Geral
+.DS_Store
+.env
