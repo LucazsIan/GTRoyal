@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/frontend/css/login_cadastro.css">
+</head>
+
+<body class="d-flex justify-content-center align-items-center">
+
+    <!-- Container -->
+    <div class="container black_card d-flex flex-column align-items-center justify-content-center py-5 mb-5"
+        style="max-width: 390px; max-height: 600px;">
+
+        <!-- Titulos -->
+        <div class="d-flex flex-column align-items-center">
+            <h1 class="white_title">LOGIN</h1>
+            <p style="color: #ab5eff;">Bem-vindo ao GTRoyal</p>
+        </div>
+
+        <!-- Inputs -->
+        <div class="w-100 d-flex flex-column px-4">
+
+            <div class="d-flex flex-column gap-3">
+
+                <!-- E-MAIL input -->
+                <div>
+                    <Label class="text-white mb-1">E-mail</Label>
+                    <div class="input-group">
+                        <input type="text" class="form-control input_escuro" placeholder="Digite seu e-mail"
+                            aria-label="E-mail" aria-describedby="visible-addon">
+                    </div>
+                </div>
+
+                <!-- SENHA input -->
+                <div>
+                    <div class="input-group">
+                        <Label class="text-white mb-1">Senha</Label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input_escuro" placeholder="Digite sua senha"
+                                aria-label="Senha" aria-describedby="visible-addon">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Complementos -->
+            <div class="d-flex justify-content-between w-100 pe-1 mt-1">
+
+                <!-- Lembrar-me -->
+                <div class="form-check d-flex align-items-start gap-1">
+                    <input class="form-check-input input_escuro link ps-0 mt-1" style="border: 1px solid #741ec3;"
+                        type="checkbox" value="" id="checkDefault">
+                    <label class="form-check-label text-white small link" style="text-decoration: none;"
+                        for="checkDefault">
+                        Lembrar-me
+                    </label>
+                </div>
+
+                <!-- Esqueci minha senha -->
+                <div class="">
+                    <a href="#" class="link">
+                        <p class="link me-1" style="color: #d1a4f0;">Esqueci minha senha</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- botões -->
+        <div class="d-flex flex-column gap-2 w-75 mt-4 ">
+
+            <!-- Logar -->
+            <button type="button" class="btn btn-secondary w-100 btn_roxo">Confirmar</button>
+
+            <!-- Links -->
+            <div class="d-flex justify-content-center gap-2">
+                <p class="link" style="text-decoration: none;">Novo aqui?</p>
+
+                <a href="#" class="link" style="color: #d1a4f0;">Cadastrar</a>
+
+                <a href="#" class="link" style="color: #d1a4f0;">Suporte</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

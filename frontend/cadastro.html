@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/frontend/css/login_cadastro.css">
+</head>
+
+<body class="d-flex justify-content-center align-items-center">
+
+    <!-- Container -->
+    <div class="row" style="background-color: #1e0530; min-height: 600px; min-width: 1000px; border-radius: 5px;">
+
+        <!-- Esquerda parte -->
+        <div class="col-12 col-md-5 order-2 order-md-1 d-flex align-items-center justify-content-center">
+
+            <div class="w-100 d-flex flex-column align-items-center justify-content-center gap-1 mb-4 px-4">
+                <h2 class="white_title">Seja bem-vindo!</h2>
+                <p class="text-white text-center">GTRoyal busca trazer uma experiência única para a sua paixão aos
+                    carros esportivos
+                </p>
+                <button type="button" class="btn btn_borda px-4">Entrar</button>
+            </div>
+        </div>
+
+        <!-- Direita parte -->
+        <div class="col-12 col-md-7 order-1 order-md-2 black_card d-flex flex-column align-items-center py-5">
+
+            <div class="d-flex flex-column align-items-center" style="width: 80%;">
+
+                <!-- Titulos -->
+                <h1 class="white_title">CADASTRAR</h1>
+
+                <form autocomplete="off">
+
+                    <div class="d-flex flex-column gap-3 w-100 mt-3">
+
+                        <!-- NOME - SOBRENOME -->
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="text-white mb-1">Nome</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input_escuro" placeholder="Digite seu nome"
+                                        name="nome" aria-label="Nome" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-white mb-1">Sobrenome</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input_escuro"
+                                        placeholder="Digite seu sobrenome" name="sobrenome" aria-label="Sobrenome"
+                                        autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="text-white mb-1">E-mail</label>
+                                <div class="input-group">
+                                    <input type="email" class="form-control input_escuro"
+                                        placeholder="Digite seu e-mail" name="email" aria-label="E-mail"
+                                        autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TELEFONE - DATA DE NASCIMENTO - PAÍS -->
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label class="text-white mb-1">Telefone</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input_escuro"
+                                        placeholder="Digite seu telefone" name="telefone" aria-label="Telefone"
+                                        autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="text-white mb-1">Data de nasc.</label>
+                                <div class="input-group">
+                                    <input type="date" class="form-control input_escuro" name="data_nascimento"
+                                        aria-label="Data de nascimento" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="text-white mb-1">País</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input_escuro" placeholder="Digite seu país"
+                                        name="pais" aria-label="País" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CEP -->
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="text-white mb-1">CEP</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input_escuro" placeholder="Digite seu CEP"
+                                        name="cep" aria-label="CEP" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SENHA - REPETIR SENHA -->
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="text-white mb-1">Senha</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control input_escuro"
+                                        placeholder="Digite sua senha" name="password" aria-label="Senha"
+                                        autocomplete="new-password">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-white mb-1">Repetir senha</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control input_escuro"
+                                        placeholder="Repita sua senha" name="confirm_password"
+                                        aria-label="Repetir senha" autocomplete="new-password">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Termos de uso e políticas de privacidade -->
+                    <div class="form-check mt-3">
+                        <input class="form-check-input input_escuro" type="checkbox" value="" id="checkDefault"
+                            name="aceito_termos">
+                        <label class="form-check-label text-white small" for="checkDefault">
+                            Eu li e aceito todos os
+                            <a href="#" class="link" style="color: #d1a4f0;">termos de uso</a> e
+                            <a href="#" class="link" style="color: #d1a4f0;">políticas de privacidade</a>
+                        </label>
+                    </div>
+
+                </form>
+
+
+
+                <!-- botões -->
+                <div class="d-flex flex-column gap-2 w-100 mt-2 ">
+
+                    <!-- Logar -->
+                    <button type="button" class="btn btn-secondary w-100 btn_roxo">Confirmar</button>
+
+                    <!-- Links -->
+                    <div class="d-flex justify-content-center gap-2">
+                        <p class="link" style="text-decoration: none;">Já é de casa?</p>
+
+                        <a href="#" class="link" style="color: #d1a4f0;">Entrar</a>
+
+                        <a href="#" class="link" style="color: #d1a4f0;">Suporte</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

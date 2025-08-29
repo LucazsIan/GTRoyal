@@ -1,0 +1,106 @@
+body {
+    height: 100vh;
+    background-color: #070911;
+}
+
+.white_title {
+    color: white;
+}
+
+/* CARD */
+.black_card {
+    background-color: #0c0a16;
+    border: 2px solid #741ec3;
+    border-radius: 20px;
+    box-shadow: 0 0 30px 20px rgba(116, 30, 195, 0.3);
+}
+
+/* INPUT */
+.input_escuro {
+    background-color: #23242d;
+    border: none;
+    color: white;
+}
+
+.input_escuro:focus {
+    background-color: #23242d;
+    border: 1px solid #741ec3;
+    box-shadow: 0 0 4px 4px rgba(116, 30, 195, 0.3);
+    transition: all 0.3s ease;
+    caret-color: #741ec3;
+    color: white;
+}
+
+.input_escuro::placeholder {
+    color: #7e7589;
+    opacity: 1;
+}
+
+/* --- Autofill Geral --- */
+.input_escuro:-webkit-autofill,
+.input_escuro:-webkit-autofill:hover,
+.input_escuro:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #23242d inset !important;
+    /* fundo */
+    -webkit-text-fill-color: white !important;
+    /* texto branco */
+    border: none !important;
+    transition: background-color 5000s ease-in-out 0s;
+    /* evita piscar amarelo */
+}
+
+/* --- Autofill + Focus (inclui senha e repetir senha) --- */
+.input_escuro:-webkit-autofill:focus,
+input[type="password"].input_escuro:-webkit-autofill,
+input[type="password"].input_escuro:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #23242d inset,
+        0 0 4px 4px rgba(116, 30, 195, 0.3) !important;
+    -webkit-text-fill-color: white !important;
+    border: 1px solid #741ec3 !important;
+    caret-color: #741ec3;
+}
+
+/* --- Firefox --- */
+.input_escuro:autofill {
+    background-color: #23242d !important;
+    color: white !important;
+}
+
+
+
+/* BOTÃO ROXO */
+.btn_roxo {
+    background-color: #741ec3;
+    color: white;
+    border: none;
+}
+
+.btn_roxo:hover {
+    background-color: #741ec3;
+    color: white;
+    border: none;
+}
+
+/* BOTÃO COM BORDA */
+
+.btn_borda {
+    color: #741ec3;
+    border: 1px solid #741ec3;
+}
+
+.btn_borda:hover {
+    color: #741ec3;
+    border: none;
+}
+
+
+/* LINK */
+.link {
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
