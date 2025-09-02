@@ -34,21 +34,19 @@
 
                 <!-- E-MAIL input -->
                 <div>
-                    <Label class="text-white mb-1">E-mail</Label>
+                    <label class="text-white mb-1" for="email">E-mail</label>
                     <div class="input-group">
-                        <input type="text" class="form-control input_escuro" placeholder="Digite seu e-mail"
-                            aria-label="E-mail" aria-describedby="visible-addon">
+                        <input type="email" id="email" name="email" class="form-control input_escuro"
+                            placeholder="Digite seu e-mail" aria-label="E-mail" aria-describedby="visible-addon">
                     </div>
                 </div>
 
                 <!-- SENHA input -->
                 <div>
+                    <label class="text-white mb-1" for="password">Senha</label>
                     <div class="input-group">
-                        <Label class="text-white mb-1">Senha</Label>
-                        <div class="input-group">
-                            <input type="text" class="form-control input_escuro" placeholder="Digite sua senha"
-                                aria-label="Senha" aria-describedby="visible-addon">
-                        </div>
+                        <input type="password" id="password" name="password" class="form-control input_escuro"
+                            placeholder="Digite sua senha" aria-label="Senha" aria-describedby="visible-addon">
                     </div>
                 </div>
 
@@ -81,7 +79,7 @@
         <div class="d-flex flex-column gap-2 w-75 mt-4 ">
 
             <!-- Logar -->
-            <button type="button" class="btn btn-secondary w-100 btn_roxo">Confirmar</button>
+            <button type="button" class="btn btn-secondary w-100 btn_roxo" id="login">Confirmar</button>
 
             <!-- Links -->
             <div class="d-flex justify-content-center gap-2">
@@ -93,7 +91,7 @@
             </div>
         </div>
     </div>
-
+    <script src="/frontend/js/login_ajax.js"></script>
 </body>
 
 </html>

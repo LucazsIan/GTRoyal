@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+
+    // Registro
     public function register(Request $request)
     {
         $fields = $request->validate([
@@ -17,16 +19,25 @@ class AuthController extends Controller
             'password' => 'required|confirmed'
         ]);
 
-        $user = User::create($fields);
+        // Criptografa a senha antes de salvar
+        $user = User::create([
+            'name' => $fields['name'],
+            'email' => $fields['email'],
+            'password' => Hash::make($fields['password']),
+        ]);
 
-        $token = $user->createToken($request->name);
+        $token = $user->createToken($request->name)->plainTextToken;
 
-        return [
-            'user' => $user,
-            'token' => $token->plainTextToken
-        ];
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Usuário registrado com sucesso!',
+            'token' => $token,
+            'user' => $user
+        ], 201);
     }
 
+
+    // Login
     public function login(Request $request)
     {
         $request->validate([
@@ -41,21 +52,22 @@ class AuthController extends Controller
                 'message' => 'The provided credentials are incorrect.'
             ];
         }
+        
+        $token = $user->createToken($user->name)->plainTextToken;
 
-        $token = $user->createToken($user->name);
-
-        return [
+        return response()->json([
             'user' => $user,
-            'token' => $token->plainTextToken
-        ];
+            'token' => $token
+        ], 200);
     }
 
+    // Logout
     public function logout(Request $request)
     {
         $request->user()->tokens()->delete();
 
         return [
-            'message'=> 'You are logged out.'
+            'message' => 'You are logged out.'
         ];
     }
 }
