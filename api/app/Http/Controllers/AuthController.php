@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\UserToken;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -26,12 +28,9 @@ class AuthController extends Controller
             'password' => Hash::make($fields['password']),
         ]);
 
-        $token = $user->createToken($request->name)->plainTextToken;
-
         return response()->json([
             'status' => 'success',
             'message' => 'Usuário registrado com sucesso!',
-            'token' => $token,
             'user' => $user
         ], 201);
     }
@@ -52,22 +51,30 @@ class AuthController extends Controller
                 'message' => 'The provided credentials are incorrect.'
             ];
         }
-        
-        $token = $user->createToken($user->name)->plainTextToken;
+
+        $user_token = new UserToken();
+        $user_token->where('user_id', "=", $user->id)->delete();
+
+        $user_token->user_id = $user->id;
+        $data_hora = date(format: 'Y-m-d H:i:s');
+        $user_token->token = md5($user->user_email . $user->user_id . $user->user_password . $data_hora);
+        $user_token->valido_ate = Carbon::now()->addDays(7);
+        $user_token->save();
 
         return response()->json([
             'user' => $user,
-            'token' => $token
+            'token' => $user_token->token,
         ], 200);
     }
 
     // Logout
     public function logout(Request $request)
     {
-        $request->user()->tokens()->delete();
+        $user_token = new UserToken();
+        $user_token->where('user_id', "=", $request->user_id)->delete();
 
-        return [
-            'message' => 'You are logged out.'
-        ];
+        return response()->json([
+            'message' => 'Logout feito com sucesso.'
+        ]);
     }
 }

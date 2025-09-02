@@ -5,18 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controllers\HasMiddleware;
-use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Gate;
 
-class PostController extends Controller implements HasMiddleware
+class PostController extends Controller 
 {
-    public static function middleware()
-    {
-        return[
-            new Middleware('auth:sanctum', except:['index','show'])
-        ];
-    }
+  
     /**
      * Display a listing of the resource.
      */
