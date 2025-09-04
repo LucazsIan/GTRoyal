@@ -1,73 +1,50 @@
-// CADASTRO
-document.addEventListener("DOMContentLoaded", function () {
-    const registerBtn = document.getElementById("registrar");
-    const form = document.querySelector("form");
+$(document).ready(function () {
+    $("#registrar").click(function (e) {
+        e.preventDefault(); // Evita envio padrão do form
 
-    if (!registerBtn || !form) {
-        console.error("Botão de registrar ou formulário não encontrados!");
-        return;
-    }
+        // Limpa mensagens de erro antigas
+        $(".text-danger").text("").removeAttr("aria-invalid");
 
-    registerBtn.addEventListener("click", async function (e) {
-        e.preventDefault();
-
-        // Coleta os dados do formulário
-        const formData = new FormData(form);
-
-        // Monta objeto para enviar ao Laravel
-        const data = {
-            name: formData.get("nome") + " " + formData.get("sobrenome"),
-            email: formData.get("email"),
-            password: formData.get("password"),
-            password_confirmation: formData.get("password_confirmation") // <== CORRETO
+        // Coleta dados do formulário
+        let dados = {
+            nome: $("input[name='nome']").val(),
+            sobrenome: $("input[name='sobrenome']").val(),
+            email: $("input[name='email']").val(),
+            telefone: $("input[name='telefone']").val(),
+            data_nasc: $("input[name='data_nascimento']").val(),
+            pais: $("input[name='pais']").val(),
+            cep: $("input[name='cep']").val(),
+            password: $("input[name='password']").val(),
+            password_confirmation: $("input[name='password_confirmation']").val(),
+            aceito_termos: $("input[name='aceito_termos']").is(":checked") ? 1 : 0
         };
 
-        try {
-            const response = await fetch("http://127.0.0.1:8000/api/register", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
+        $.ajax({
+            url: "http://127.0.0.1:8000/api/register", // Ajuste para sua rota de cadastro
+            method: "POST",
+            data: dados,
+            success: function (response) {
+                // Feedback de sucesso
+                alert("Cadastro realizado com sucesso!");
+                $("#cadastroForm")[0].reset(); // Limpa formulário
+            },
+            error: function (xhr) {
+                if (xhr.status === 422) {
+                    // Erros de validação do Laravel
+                    let errors = xhr.responseJSON.errors;
 
-            const result = await response.json();
-
-            if (response.ok) {
-                alert("✅ Cadastro realizado com sucesso!");
-
-                // Filtra dados sensíveis do usuário
-                const user = {
-                    id: result.user.id,
-                    name: result.user.name,
-                    email: result.user.email
-                };
-
-                console.log("Usuário:", user);
-                console.log("Token:", result.token);
-
-                // Salva token no localStorage
-                localStorage.setItem("auth_token", result.token);
-
-                // Limpa o formulário
-                form.reset();
-
-            } else {
-                // Mostra erros de validação do Laravel
-                let mensagens = "";
-                if (result.errors) {
-                    for (const campo in result.errors) {
-                        mensagens += result.errors[campo].join("\n") + "\n";
-                    }
+                    // Para cada campo com erro
+                    $.each(errors, function (key, mensagens) {
+                        let errorDiv = $("#" + key + "Error");
+                        if (errorDiv.length) {
+                            errorDiv.text(mensagens[0]).attr("aria-invalid", "true");
+                        }
+                    });
                 } else {
-                    mensagens = result.message;
+                    // Outros erros
+                    alert("Ocorreu um erro. Tente novamente mais tarde.");
                 }
-                alert("⚠️ Erro no cadastro:\n" + mensagens);
             }
-        } catch (error) {
-            console.error("Erro inesperado:", error);
-            alert("❌ Erro ao conectar com o servidor.");
-        }
+        });
     });
 });

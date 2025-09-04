@@ -17,80 +17,88 @@
 
 <body class="d-flex justify-content-center align-items-center">
 
-    <!-- Container -->
-    <div class="container black_card d-flex flex-column align-items-center justify-content-center py-5 mb-5"
-        style="max-width: 390px; max-height: 600px;">
+    <form id="loginForm" class="w-100 h-100 d-flex justify-content-center align-items-center">
 
-        <!-- Titulos -->
-        <div class="d-flex flex-column align-items-center">
-            <h1 class="white_title">LOGIN</h1>
-            <p style="color: #ab5eff;">Bem-vindo ao GTRoyal</p>
-        </div>
+        <!-- Container -->
+        <div class="container black_card d-flex flex-column align-items-center justify-content-center py-5 mb-5"
+            style="max-width: 390px; max-height: 600px;">
 
-        <!-- Inputs -->
-        <div class="w-100 d-flex flex-column px-4">
+            <!-- Titulos -->
+            <div class="d-flex flex-column align-items-center">
+                <h1 class="white_title">LOGIN</h1>
+                <p style="color: #ab5eff;">Bem-vindo ao GTRoyal</p>
+            </div>
 
-            <div class="d-flex flex-column gap-3">
+            <!-- Inputs -->
+            <div class="w-100 d-flex flex-column px-4">
 
-                <!-- E-MAIL input -->
-                <div>
-                    <label class="text-white mb-1" for="email">E-mail</label>
-                    <div class="input-group">
-                        <input type="email" id="email" name="email" class="form-control input_escuro"
-                            placeholder="Digite seu e-mail" aria-label="E-mail" aria-describedby="visible-addon">
+                <div class="d-flex flex-column gap-3">
+
+                    <!-- E-MAIL input -->
+                    <div>
+                        <label class="text-white mb-1" for="email">E-mail</label>
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" class="form-control input_escuro"
+                                placeholder="Digite seu e-mail" aria-label="E-mail" aria-describedby="visible-addon">
+                        </div>
+                    </div>
+
+                    <!-- SENHA input -->
+                    <div>
+                        <label class="text-white mb-1" for="password">Senha</label>
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" class="form-control input_escuro"
+                                placeholder="Digite sua senha" aria-label="Senha" aria-describedby="visible-addon">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Complementos -->
+                <div class="d-flex justify-content-between w-100 pe-1 mt-1">
+
+                    <!-- Lembrar-me -->
+                    <div class="form-check d-flex align-items-start gap-1">
+                        <input class="form-check-input input_escuro link ps-0 mt-1" style="border: 1px solid #741ec3;"
+                            type="checkbox" value="" id="checkDefault">
+                        <label class="form-check-label text-white small link" style="text-decoration: none;"
+                            for="checkDefault">
+                            Lembrar-me
+                        </label>
+                    </div>
+
+                    <!-- Esqueci minha senha -->
+                    <div class="">
+                        <a href="#" class="link">
+                            <p class="link me-1" style="color: #d1a4f0;">Esqueci minha senha</p>
+                        </a>
                     </div>
                 </div>
 
-                <!-- SENHA input -->
-                <div>
-                    <label class="text-white mb-1" for="password">Senha</label>
-                    <div class="input-group">
-                        <input type="password" id="password" name="password" class="form-control input_escuro"
-                            placeholder="Digite sua senha" aria-label="Senha" aria-describedby="visible-addon">
-                    </div>
-                </div>
-
             </div>
 
-            <!-- Complementos -->
-            <div class="d-flex justify-content-between w-100 pe-1 mt-1">
+            <!-- botões -->
+            <div class="d-flex flex-column gap-2 w-75 mt-4 ">
 
-                <!-- Lembrar-me -->
-                <div class="form-check d-flex align-items-start gap-1">
-                    <input class="form-check-input input_escuro link ps-0 mt-1" style="border: 1px solid #741ec3;"
-                        type="checkbox" value="" id="checkDefault">
-                    <label class="form-check-label text-white small link" style="text-decoration: none;"
-                        for="checkDefault">
-                        Lembrar-me
-                    </label>
+                <!-- Logar -->
+                <button type="submit" class="btn btn-secondary w-100 btn_roxo" id="login">Confirmar</button>
+
+                <!-- Links -->
+                <div class="d-flex justify-content-center gap-2">
+                    <p class="link" style="text-decoration: none;">Novo aqui?</p>
+
+                    <a href="#" class="link" style="color: #d1a4f0;">Cadastrar</a>
+
+                    <a href="#" class="link" style="color: #d1a4f0;">Suporte</a>
                 </div>
-
-                <!-- Esqueci minha senha -->
-                <div class="">
-                    <a href="#" class="link">
-                        <p class="link me-1" style="color: #d1a4f0;">Esqueci minha senha</p>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- botões -->
-        <div class="d-flex flex-column gap-2 w-75 mt-4 ">
-
-            <!-- Logar -->
-            <button type="button" class="btn btn-secondary w-100 btn_roxo" id="login">Confirmar</button>
-
-            <!-- Links -->
-            <div class="d-flex justify-content-center gap-2">
-                <p class="link" style="text-decoration: none;">Novo aqui?</p>
-
-                <a href="#" class="link" style="color: #d1a4f0;">Cadastrar</a>
-
-                <a href="#" class="link" style="color: #d1a4f0;">Suporte</a>
             </div>
         </div>
-    </div>
+    </form>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Seu JS -->
     <script src="/frontend/js/login_ajax.js"></script>
 </body>
 

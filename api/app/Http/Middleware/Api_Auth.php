@@ -26,14 +26,14 @@ class Api_Auth
             if($token){
                  return $next($request);
             }else{
-                 return response()->json(["msg" => "user_id e/ou token invalidos"],200);
+                 return response()->json(["msg" => "user_id e/ou token invalidos"],401);
 
             }
 
 
         }else{
 
-            return response()->json(["msg" => "user_id e/ou token vazios"],200);
+            return response()->json(["msg" => "user_id e/ou token vazios"],400);
         }
       
     }
