@@ -18,22 +18,22 @@ class Api_Auth
     public function handle(Request $request, Closure $next): Response
     {
 
-        if($request->has("user_id") && $request->has("token")){
+        if($request->has("id_usuario") && $request->has("token")){
 
-            $token = UserToken::where("user_id", $request->user_id)->where("token",$request->token)
+            $token = UserToken::where("id_usuario", $request->id_usuario)->where("token",$request->token)
             ->where("valido_ate",">=", Carbon::now())->get()->first();
 
             if($token){
                  return $next($request);
             }else{
-                 return response()->json(["msg" => "user_id e/ou token invalidos"],401);
+                 return response()->json(["msg" => "id_usuario e/ou token invalidos"],401);
 
             }
 
 
         }else{
 
-            return response()->json(["msg" => "user_id e/ou token vazios"],400);
+            return response()->json(["msg" => "id_usuario e/ou token vazios"],400);
         }
       
     }

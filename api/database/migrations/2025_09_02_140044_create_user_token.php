@@ -12,15 +12,15 @@ return new class extends Migration {
     {
         Schema::create('user_token', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('id_usuario');
             $table->string('token');
             $table->timestamp('valido_ate');
             $table->timestamps();
 
-            $table->foreign('user_id')
-            ->references('id')
-            ->on('users')
-            ->onDelete('cascade');
+            $table->foreign('id_usuario')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
@@ -29,8 +29,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::table('user_token', function(Blueprint $table){
-            $table->dropForeign('user_id');
+        Schema::table('user_token', function (Blueprint $table) {
+            $table->dropForeign(['id_usuario']);
         });
 
         Schema::dropIfExists('user_token');

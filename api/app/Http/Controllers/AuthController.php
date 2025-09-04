@@ -72,9 +72,9 @@ class AuthController extends Controller
         }
 
         $user_token = new UserToken();
-        $user_token->where('user_id', "=", $user->id)->delete();
+        $user_token->where('id_usuario', "=", $user->id)->delete();
 
-        $user_token->user_id = $user->id;
+        $user_token->id_usuario = $user->id;
         $data_hora = date('Y-m-d H:i:s');
         $user_token->token = md5($user->email . $user->id . $user->password . $data_hora);
         $user_token->valido_ate = Carbon::now()->addDays(7);
@@ -99,7 +99,7 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $user_token = new UserToken();
-        $user_token->where('user_id', "=", $request->user_id)->delete();
+        $user_token->where('id_usuario', "=", $request->id_usuario)->delete();
 
         return response()->json([
             'message' => 'Logout feito com sucesso.'

@@ -8,7 +8,7 @@ class UserToken extends Model
 {
     protected $table = "user_token";
     protected $fillable = [
-        "user_id",
+        "id_usuario",
         "token",
         "valido_ate"
     ];
