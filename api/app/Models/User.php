@@ -19,8 +19,13 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'nome',
+        'sobrenome',
         'email',
+        'telefone',
+        'data_nasc',
+        'pais',
+        'cep',
         'password',
     ];
 
@@ -43,6 +48,7 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
+            'data_nasc' => 'date',
             'password' => 'hashed',
         ];
     }

@@ -16,22 +16,41 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $fields = $request->validate([
-            'name' => 'required|max:225',
+            'nome' => 'required|max:225',
+            'sobrenome' => 'required|string|max:50',
             'email' => 'required|email|unique:users',
+            'telefone' => 'required|string|unique:users',
+            'data_nasc' => 'required|date',
+            'pais' => 'required|string|max:50',
+            'cep' => 'required|string|max:9',
             'password' => 'required|confirmed'
         ]);
 
         // Criptografa a senha antes de salvar
         $user = User::create([
-            'name' => $fields['name'],
+            'nome' => $fields['nome'],
+            'sobrenome' => $fields['sobrenome'],
             'email' => $fields['email'],
-            'password' => Hash::make($fields['password']),
+            'telefone' => $fields['telefone'],
+            'data_nasc' => $fields['data_nasc'],
+            'pais' => $fields['pais'],
+            'cep' => $fields['cep'],
+            'password' => $fields['password'],
         ]);
 
         return response()->json([
             'status' => 'success',
             'message' => 'Usuário registrado com sucesso!',
-            'user' => $user
+            'user' => [
+                'id' => $user->id,
+                'nome' => $user->nome,
+                'sobrenome' => $user->sobrenome,
+                'email' => $user->email,
+                'telefone' => $user->telefone,
+                'data_nasc' => $user->data_nasc,
+                'pais' => $user->pais,
+                'cep' => $user->cep,
+            ]
         ], 201);
     }
 
@@ -56,13 +75,22 @@ class AuthController extends Controller
         $user_token->where('user_id', "=", $user->id)->delete();
 
         $user_token->user_id = $user->id;
-        $data_hora = date(format: 'Y-m-d H:i:s');
-        $user_token->token = md5($user->user_email . $user->user_id . $user->user_password . $data_hora);
+        $data_hora = date('Y-m-d H:i:s');
+        $user_token->token = md5($user->email . $user->id . $user->password . $data_hora);
         $user_token->valido_ate = Carbon::now()->addDays(7);
         $user_token->save();
 
         return response()->json([
-            'user' => $user,
+            'user' => [
+                'id' => $user->id,
+                'nome' => $user->nome,
+                'sobrenome' => $user->sobrenome,
+                'email' => $user->email,
+                'telefone' => $user->telefone,
+                'data_nasc' => $user->data_nasc,
+                'pais' => $user->pais,
+                'cep' => $user->cep,
+            ],
             'token' => $user_token->token,
         ], 200);
     }
