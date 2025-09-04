@@ -16,9 +16,12 @@ Route::middleware(Api_Auth::class)->group(function () {
     Route::post('/salva', [CarroController::class, 'salvar']);
 });
 
+//Retorna carros
+Route::get('/retorna_carros', [CarroController::class,'retorna_carros']);
 
 // Autenticação
 Route::post('/register', [AuthController::class, 'register']);
+
 Route::post('/login', [AuthController::class, 'login']);
 
 //Editar

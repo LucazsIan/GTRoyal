@@ -85,23 +85,18 @@ class CarroController extends Controller
 
     //RETORNA CARROS
     public function retorna_carros(Request $request){
+
         $carro = Carro::get()->all();
 
-        foreach( $carro as $a){
-
-            $user = User::find($a['user_id']);
-
-            $a['nome'] = $user->nome;
-        }
-
-        $data = [
-            "erro" => 'n',
-            "data" => $carro
-        ];
+     
+        $data = ["erro" => 'n',
+            "data" => $carro];
 
         return response()->json($data,200);
 
     }
+
+    
 
 
 
