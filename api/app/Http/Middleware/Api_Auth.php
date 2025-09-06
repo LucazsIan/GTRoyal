@@ -26,8 +26,8 @@ class Api_Auth
             if($token){
                  return $next($request);
             }else{
+                
                  return response()->json(["msg" => "id_usuario e/ou token invalidos"],401);
-
             }
 
 

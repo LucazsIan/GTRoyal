@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar carro</title>
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="/frontend/css/style.css">
+</head>
+
+<body class="container d-flex flex-column justify-content-center">
+
+    <div class="row g-0 overflow-hidden shadow-lg bloco_borda" style="min-height: 600px;">
+
+        <!-- COLUNA - ESQUERDA - FORMS -->
+        <div class="col-lg-6 text-white p-5 d-flex flex-column justify-content-center bg-purple black_card">
+            <h2 class="text-center mb-4 text-purple">REGISTRAR CARRO</h2>
+
+            <form id="registra_carro_form" class="pt-3">
+
+                <!-- Marca e modelo -->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label text-purple">Marca</label>
+                        <input type="text" class="form-control input_escuro" id="marca">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label text-purple">Modelo</label>
+                        <input type="text" class="form-control input_escuro" id="modelo">
+                    </div>
+                </div>
+
+                <!-- Ano e cor -->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label text-purple">Ano de fabricação</label>
+                        <input type="number" class="form-control input_escuro" id="ano_fabricacao">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label text-purple">Cor</label>
+                        <input type="text" class="form-control input_escuro" id="cor">
+                    </div>
+                </div>
+
+                <!-- Carroceria e combustivel-->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label text-purple">Carroceria</label>
+                        <input type="text" class="form-control input_escuro" id="carroceria">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label text-purple">Combustivel</label>
+                        <input type="text" class="form-control input_escuro" id="combustivel">
+                    </div>
+                </div>
+
+                <!-- Quilometragem e preço-->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label text-purple">Quilometragem</label>
+                        <input type="number" class="form-control input_escuro" id="quilometragem">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label text-purple">Preço</label>
+                        <input type="number" class="form-control input_escuro" id="preco">
+                    </div>
+                </div>
+
+
+
+                <button type="submit" id="registrar_carro" class="btn btn_borda w-100 py-2 mt-3">REGISTRAR</button>
+            </form>
+        </div>
+
+
+        <!-- COLUNA - DIREITA - UPLOAD -->
+        <div class=" col-lg-6 p-0 rounded-4 shadow-lg position-relative" style="min-height: 400px; overflow: hidden;">
+
+            <!-- Botão de upload-->
+            <div id="uploadContainer" class="d-flex flex-column justify-content-center align-items-center h-100 w-100">
+
+                <button id="selectImageBtn" class="btn btn-primary d-flex flex-column align-items-center p-3"
+                    style="width: 120px; background-color: transparent; border: dashed 3px white;">
+                    <i class="fa-solid fa-folder fa-3x mb-2"></i>
+                    <span>Upload</span>
+                </button>
+
+                <input type="file" id="imageInput" class="d-none" accept="image/*">
+            </div>
+
+            <!-- Container da imagem selecionada (inicialmente escondido) -->
+            <div id="imagePreviewContainer" class="d-none position-absolute top-0 start-0 w-100 h-100">
+                <img id="preview" src="" alt="Preview do carro" class="img-fluid w-100 h-100"
+                    style="object-fit: cover; border-radius: 0;">
+
+                <!-- Botão para alterar a imagem -->
+                <button id="changeImageBtn" class="btn btn-light position-absolute"
+                    style="top: 10px; right: 70px; opacity: 0.8;">
+                    <i class="fa-solid fa-pen me-1"></i> Alterar
+                </button>
+
+                <!-- Botão para excluir a imagem -->
+                <button id="deleteImageBtn" class="btn position-absolute"
+                    style="top: 10px; right: 10px; opacity: 0.8; color: white;">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Registra carro JS -->
+    <script src="/frontend/ajax/registra_carro_ajax.js"></script>
+
+    <!-- JS -->
+    <script src="/frontend/js/cadastro_carro.js"></script>
+</body>
+
+</html>

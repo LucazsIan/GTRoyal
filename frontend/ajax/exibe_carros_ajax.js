@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  new DataTable("#tabela_categoria", {
+  new DataTable("#tabela_carro", {
     processing: true,
     serverSide: false,
     responsive: true,
@@ -12,7 +12,7 @@ $(document).ready(function () {
       url: "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json",
     },
     ajax: {
-      url: "../api/retorna_carros",
+      url: "http://127.0.0.1:8000/api/retorna_carros",
       type: "GET",
       data: function (d) {
         d.user_id = $("#user_id").val(); //lembrar que o meu é diferente
@@ -29,7 +29,7 @@ $(document).ready(function () {
       { data: "cor", title: "Cor" },
       { data: "carroceria", title: "Carroceria" },
       { data: "combustivel", title: "Combustivel" },
-      { data: "quilometragem,", title: "Quilometragem" },
+      { data: "quilometragem", title: "Quilometragem" },
       { data: "preco", title: "Preço" },
       { data: "status", title: "Status" },
       {

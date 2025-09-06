@@ -7,6 +7,11 @@ body {
     color: white;
 }
 
+.bloco_borda{
+    border: 1px solid #741ec3;
+    border-radius: 20px;
+}
+
 /* CARD */
 .black_card {
     background-color: #0c0a16;
