@@ -15,7 +15,7 @@ $(document).ready(function () {
       url: "http://127.0.0.1:8000/api/retorna_carros",
       type: "GET",
       data: function (d) {
-        d.user_id = $("#user_id").val(); //lembrar que o meu é diferente
+        d.id_usuario = $("#id_usuario").val(); //lembrar que o meu é diferente
         d.token = $("#token").val();
       },
       dataSrc: "data",

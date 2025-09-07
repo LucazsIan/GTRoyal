@@ -1,32 +1,34 @@
 $(document).ready(function () {
     $("#loginForm").submit(function (e) {
-        e.preventDefault(); // Evita o envio normal do form
+        e.preventDefault();
 
-        // Dados do formulário
         var dados = {
             email: $("#email").val(),
             password: $("#password").val()
         };
 
         $.ajax({
-            url: "http://127.0.0.1:8000/api/login", // Ajuste para a rota real do seu backend
+            url: "http://127.0.0.1:8000/api/login",
             method: "POST",
             data: dados,
             dataType: "json",
             success: function (response) {
-                // Login bem-sucedido
+
+                localStorage.setItem("user_token", response.token);
+                localStorage.setItem("id_usuario", response.user.id);
+
+                console.log("Token:", localStorage.getItem("user_token"));
+                console.log("User ID:", localStorage.getItem("id_usuario"));
+
                 alert("Login feito com sucesso!");
+
                 console.log(response);
 
-                // Você pode salvar o token no localStorage ou sessionStorage
-                localStorage.setItem("user_token", response.token);
-                localStorage.setItem("user_id", response.user.id);
+                window.location.href = "http://127.0.0.1:5501/frontend/registro_carro.html";
 
-                // Redirecionar ou atualizar a página
-                // window.location.href = "/dashboard";
             },
             error: function (xhr) {
-                // Login falhou
+
                 if (xhr.status === 401) {
                     alert("E-mail ou senha incorretos.");
                 } else {
@@ -37,3 +39,6 @@ $(document).ready(function () {
         });
     });
 });
+
+
+

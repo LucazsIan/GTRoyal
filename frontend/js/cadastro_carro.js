@@ -1,4 +1,4 @@
-const imageInput = document.getElementById('imageInput');
+const imageInput = document.getElementById('imagem');
 const selectBtn = document.getElementById('selectImageBtn');
 const changeBtn = document.getElementById('changeImageBtn');
 const deleteBtn = document.getElementById('deleteImageBtn');

@@ -11,7 +11,7 @@ class CarroController extends Controller
 {
 
     // SALVA
-    public function salvar_carro(Request $request)
+    public function registrar_carro(Request $request)
     {
 
         $carro = new Carro();
@@ -25,8 +25,23 @@ class CarroController extends Controller
         $carro->preco = $request->preco;
         $carro->status = $request->status;
         $carro->id_usuario = $request->id_usuario;
+
+        //Imagem Upload
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+
+            $requestImagem = $request->imagem;
+
+            $extension = $requestImagem->extension();
+
+            $imagemName = md5($requestImagem->getClientOriginalName() . strtotime("now")) . "." . $extension;
+
+            $requestImagem->move(public_path('img/carros'), $imagemName);
+
+            $carro->imagem = $imagemName;
+        }
+
         $carro->save();
- 
+
         $data = ["carro" => $carro];
         return response()->json($data, 200);
 
@@ -52,12 +67,27 @@ class CarroController extends Controller
         $carro->quilometragem = $request->quilometragem ?? $carro->quilometragem;
         $carro->preco = $request->preco ?? $carro->preco;
         $carro->status = $request->status ?? $carro->status;
-        $carro->imagem = $request->imagem ?? $carro->imagem;
+
+        // Imagem
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+
+            if ($carro->imagem && file_exists(public_path('img/carros/' . $carro->imagem))) {
+                unlink(public_path('img/carros/' . $carro->imagem));
+            }
+
+            $requestImagem = $request->imagem;
+            $extension = $requestImagem->extension();
+            $imagemName = md5($requestImagem->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImagem->move(public_path('img/carros'), $imagemName);
+
+            $carro->imagem = $imagemName;
+        }
 
         $carro->save();
 
         return response()->json(['carro' => $carro], 200);
     }
+
 
     // DELETA
     public function deletar_carro($id)
@@ -73,6 +103,7 @@ class CarroController extends Controller
         return response()->json(['message' => 'Carro deletado com sucesso'], 200);
     }
 
+
     //RETORNA CARROS
     public function retornar_carros(Request $request)
     {
@@ -85,5 +116,16 @@ class CarroController extends Controller
         ];
 
         return response()->json($data, 200);
+    }
+
+
+    //RETORNAR CARROS DE UM USUÁRIO
+    public function usuario_carros(Request $request)
+    {
+        $user = User::find($request->id_usuario);
+
+        $carros = Carro::where('id_usuario', $user->id)->get();
+
+        return response()->json(['carros' => $carros], 200);
     }
 }

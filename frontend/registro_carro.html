@@ -29,16 +29,16 @@
             <h2 class="text-center mb-4 text-purple">REGISTRAR CARRO</h2>
 
             <form id="registra_carro_form" class="pt-3">
-
+                
                 <!-- Marca e modelo -->
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label class="form-label text-purple">Marca</label>
-                        <input type="text" class="form-control input_escuro" id="marca">
+                        <input type="text" class="form-control input_escuro" id="marca" name="marca">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label class="form-label text-purple">Modelo</label>
-                        <input type="text" class="form-control input_escuro" id="modelo">
+                        <input type="text" class="form-control input_escuro" id="modelo" name="modelo">
                     </div>
                 </div>
 
@@ -46,11 +46,12 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label class="form-label text-purple">Ano de fabricação</label>
-                        <input type="number" class="form-control input_escuro" id="ano_fabricacao">
+                        <input type="number" class="form-control input_escuro" id="ano_fabricacao"
+                            name="ano_fabricacao">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label class="form-label text-purple">Cor</label>
-                        <input type="text" class="form-control input_escuro" id="cor">
+                        <input type="text" class="form-control input_escuro" id="cor" name="cor">
                     </div>
                 </div>
 
@@ -58,11 +59,11 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label class="form-label text-purple">Carroceria</label>
-                        <input type="text" class="form-control input_escuro" id="carroceria">
+                        <input type="text" class="form-control input_escuro" id="carroceria" name="carroceria">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label class="form-label text-purple">Combustivel</label>
-                        <input type="text" class="form-control input_escuro" id="combustivel">
+                        <input type="text" class="form-control input_escuro" id="combustivel" name="combustivel">
                     </div>
                 </div>
 
@@ -70,17 +71,44 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label class="form-label text-purple">Quilometragem</label>
-                        <input type="number" class="form-control input_escuro" id="quilometragem">
+                        <input type="number" class="form-control input_escuro" id="quilometragem" name="quilometragem">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label class="form-label text-purple">Preço</label>
-                        <input type="number" class="form-control input_escuro" id="preco">
+                        <input type="number" class="form-control input_escuro" id="preco" name="preco">
                     </div>
                 </div>
 
+                <!-- Links -->
+                <div class="d-flex justify-content-center gap-2">
+                    <p class="link" style="text-decoration: none;">Intencionalidade:</p>
 
+                    <!-- Vender -->
+                    <div class="form-check d-flex align-items-start gap-1">
+                        <input class="form-check-input input_escuro link ps-0 mt-1" style="border: 1px solid #741ec3;"
+                            type="checkbox" value="" id="vender_check">
+                        <label class="form-check-label small link_rosa" style="text-decoration: none;"
+                            for="vender_check">
+                            Vender
+                        </label>
+                    </div>
 
-                <button type="submit" id="registrar_carro" class="btn btn_borda w-100 py-2 mt-3">REGISTRAR</button>
+                    <!-- Trocar -->
+                    <div class="form-check d-flex align-items-start gap-1">
+                        <input class="form-check-input input_escuro link ps-0 mt-1" style="border: 1px solid #741ec3;"
+                            type="checkbox" value="" id="trocar_check">
+                        <label class="form-check-label small link_rosa" style="text-decoration: none;"
+                            for="trocar_check">
+                            Trocar
+                        </label>
+                    </div>
+                </div>
+
+                <!-- DIV Registrar carro -->
+                <div class="w-100" id="div_registrar">
+                    <button type="submit" id="registrar_carro" class="btn btn_borda w-100 py-2 mt-3">REGISTRAR</button>
+                </div>
+
             </form>
         </div>
 
@@ -97,7 +125,7 @@
                     <span>Upload</span>
                 </button>
 
-                <input type="file" id="imageInput" class="d-none" accept="image/*">
+                <input type="file" id="imagem" name="imagem" class="d-none" accept="imagem/*">
             </div>
 
             <!-- Container da imagem selecionada (inicialmente escondido) -->

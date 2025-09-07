@@ -27,6 +27,7 @@ $(document).ready(function () {
                 // Feedback de sucesso
                 alert("Cadastro realizado com sucesso!");
                 $("#cadastroForm")[0].reset(); // Limpa formulário
+                window.location.href = "http://127.0.0.1:5501/frontend/login.html";
             },
             error: function (xhr) {
                 if (xhr.status === 422) {
