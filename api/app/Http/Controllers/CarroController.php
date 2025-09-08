@@ -42,6 +42,8 @@ class CarroController extends Controller
 
         $carro->save();
 
+        $carro->imagem_url = $carro->imagem ? url('img/carros/' . $carro->imagem) : url('img/default_car.jpg');
+
         $data = ["carro" => $carro];
         return response()->json($data, 200);
 
@@ -85,6 +87,8 @@ class CarroController extends Controller
 
         $carro->save();
 
+        $carro->imagem_url = $carro->imagem ? url('img/carros/' . $carro->imagem) : null;
+
         return response()->json(['carro' => $carro], 200);
     }
 
@@ -120,11 +124,17 @@ class CarroController extends Controller
 
 
     //RETORNAR CARROS DE UM USUÁRIO
-    public function usuario_carros(Request $request)
+    public function minha_garagem(Request $request)
     {
         $user = User::find($request->id_usuario);
 
         $carros = Carro::where('id_usuario', $user->id)->get();
+
+        foreach ($carros as $carro) {
+            $carro->imagem_url = $carro->imagem
+                ? url('img/carros/' . $carro->imagem)
+                : null;
+        }
 
         return response()->json(['carros' => $carros], 200);
     }

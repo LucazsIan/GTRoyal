@@ -3,8 +3,8 @@ $(document).ready(function () {
     // Autenticação
     let token = localStorage.getItem("user_token");
     let id_usuario = localStorage.getItem("id_usuario");
-    console.log("Token:", token);
     console.log("User ID:", id_usuario);
+    console.log("Token:", token);
 
     $("#registrar_carro").click(function (e) {
         e.preventDefault();
@@ -47,7 +47,8 @@ $(document).ready(function () {
             // Sucesso
             success: function (response) {
                 alert("Carro registrado sucesso!");
-                $("#registra_carro_form")[0].reset();
+                window.location.href = "./minha_garagem.html";
+                
             },
 
             // Erro

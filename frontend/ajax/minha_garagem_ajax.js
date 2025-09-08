@@ -1,44 +1,60 @@
 $(document).ready(function () {
 
-    // Autenticação
+    // Autenticação 
     let token = localStorage.getItem("user_token");
     let id_usuario = localStorage.getItem("id_usuario");
     console.log("Token:", token);
     console.log("User ID:", id_usuario);
-
     var dados = {
-        email: $("#email").val(),
-        password: $("#password").val()
+        id_usuario: id_usuario,
+        token: token
     };
 
+
     $.ajax({
-        url: "http://127.0.0.1:8000/api/login",
-        method: "POST",
+        url: "http://127.0.0.1:8000/api/minha_garagem",
+        method: "get",
         data: dados,
         dataType: "json",
         success: function (response) {
 
-            localStorage.setItem("user_token", response.token);
-            localStorage.setItem("id_usuario", response.user.id);
-
-            console.log("Token:", localStorage.getItem("user_token"));
-            console.log("User ID:", localStorage.getItem("id_usuario"));
-
-            alert("Login feito com sucesso!");
-
             console.log(response);
 
-            window.location.href = "http://127.0.0.1:5501/frontend/registro_carro.html";
+            // Adiciona os cards dinamicamente
+            response.carros.forEach(car => {
+                $(".slider").append(`
+                    <div class="item aling-items-center">
+                        <h1 class="pt-2">ROYAL</h1>
+                        <img class="card_img" src="${car.imagem_url || ''}" alt="${car.marca} ${car.modelo}" style="height:170px;">
+                        <h5 class="my-2">${car.marca} ${car.modelo}</h5>
+                        <div class="card_infos text-start w-100 pb-2 px-3">
+                            <div class="row mb-2">
+                                <div class="col-6">Ano:</div>
+                                <div class="col-6 text-end">${car.ano_fabricacao}</div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-6">Cor:</div>
+                                <div class="col-6 text-end">${car.cor || 'N/A'}</div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-6">Carroceria:</div>
+                                <div class="col-6 text-end">${car.carroceria || 'N/A'}</div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-6">Combustivel:</div>
+                                <div class="col-6 text-end">${car.combustivel || 'N/A'}</div>
+                            </div>
+                        </div>
+                    </div>
+                `);
+            });
+
+            initSlider();
 
         },
         error: function (xhr) {
-
-            if (xhr.status === 401) {
-                alert("E-mail ou senha incorretos.");
-            } else {
-                alert("Ocorreu um erro. Tente novamente.");
-            }
             console.log(xhr.responseJSON);
+            alert("Erro ao carregar os carros.");
         }
     });
 

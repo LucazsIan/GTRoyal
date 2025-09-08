@@ -21,7 +21,7 @@ Route::middleware(Api_Auth::class)->group(function () {
 
     Route::delete('/deleta_carro/{id}', [CarroController::class, 'deletar_carro']);
     
-    Route::get('/minha_garagem', [CarroController::class, 'usuario_carros']);
+    Route::get('/minha_garagem', [CarroController::class, 'minha_garagem']);
     
 });
 
