@@ -46,8 +46,6 @@ class CarroController extends Controller
 
         $data = ["carro" => $carro];
         return response()->json($data, 200);
-
-        // $carro = $request->user()->carros()->create($fields);
     }
 
 
@@ -89,7 +87,10 @@ class CarroController extends Controller
 
         $carro->imagem_url = $carro->imagem ? url('img/carros/' . $carro->imagem) : null;
 
-        return response()->json(['carro' => $carro], 200);
+        return response()->json([
+            'message' => 'Carro atualizado com sucesso!',
+            'carro' => $carro
+        ], 200);
     }
 
 

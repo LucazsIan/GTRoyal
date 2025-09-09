@@ -10,20 +10,20 @@ use App\Http\Middleware\Api_Auth;
 
 // Middleware
 Route::middleware(Api_Auth::class)->group(function () {
-
-    Route::apiResource('posts', PostController::class);
-
+    
     Route::post('/logout', [AuthController::class, 'logout']);
-
+    
     Route::post('/registra_carro', [CarroController::class, 'registrar_carro']);
-
+    
     Route::put('/edita_carro/{id}', [CarroController::class, 'editar_carro']);
-
+    
     Route::delete('/deleta_carro/{id}', [CarroController::class, 'deletar_carro']);
     
     Route::get('/minha_garagem', [CarroController::class, 'minha_garagem']);
     
     Route::get('/retorna_unico_carro/{id}', [CarroController::class, 'retornar_unico_carro']);
+
+    Route::apiResource('posts', PostController::class);
 });
 
 // Autenticação

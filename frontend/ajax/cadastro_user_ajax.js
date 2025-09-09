@@ -1,26 +1,24 @@
 $(document).ready(function () {
     $("#registrar").click(function (e) {
-        e.preventDefault(); // Evita envio padrão do form
+        e.preventDefault();
 
-        // Limpa mensagens de erro antigas
         $(".text-danger").text("").removeAttr("aria-invalid");
 
-        // Coleta dados do formulário
         let dados = {
-            nome: $("input[name='nome']").val(),
-            sobrenome: $("input[name='sobrenome']").val(),
-            email: $("input[name='email']").val(),
-            telefone: $("input[name='telefone']").val(),
-            data_nasc: $("input[name='data_nascimento']").val(),
-            pais: $("input[name='pais']").val(),
-            cep: $("input[name='cep']").val(),
-            password: $("input[name='password']").val(),
-            password_confirmation: $("input[name='password_confirmation']").val(),
-            aceito_termos: $("input[name='aceito_termos']").is(":checked") ? 1 : 0
+            nome: $("#nome").val(),
+            sobrenome: $("#sobrenome").val(),
+            email: $("#email").val(),
+            telefone: $("#telefone").val(),
+            data_nasc: $("#data_nascimento").val(),
+            pais: $("#pais").val(),
+            cep: $("#cep").val(),
+            password: $("#password").val(),
+            password_confirmation: $("#password_confirmation").val(),
+            aceito_termos: $("#aceito_termos").is(":checked") ? 1 : 0
         };
 
         $.ajax({
-            url: "http://127.0.0.1:8000/api/register", 
+            url: "http://127.0.0.1:8000/api/register",
             method: "POST",
             data: dados,
             success: function (response) {

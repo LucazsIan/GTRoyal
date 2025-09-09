@@ -16,7 +16,6 @@ $(document).ready(function () {
 
                 localStorage.setItem("user_token", response.token);
                 localStorage.setItem("id_usuario", response.user.id);
-
                 console.log("Token:", localStorage.getItem("user_token"));
                 console.log("User ID:", localStorage.getItem("id_usuario"));
 
