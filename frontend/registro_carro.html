@@ -29,7 +29,7 @@
             <h2 class="text-center mb-4 text-purple">REGISTRAR CARRO</h2>
 
             <form id="registra_carro_form" class="pt-3">
-                
+
                 <!-- Marca e modelo -->
                 <div class="row">
                     <div class="col-md-6 mb-3">
@@ -104,9 +104,26 @@
                     </div>
                 </div>
 
+                <!-- DIV_editar carro -->
+                <div class="row" id="div_modificar">
+
+                    <!-- Deletar - botão -->
+                    <div class="col-6 d-flex justify-content-center">
+                        <button type="submit" id="deletar_carro" class="btn btn_borda py-2 mt-3 w-100"
+                            style="color: #c31e1e; border: 1px solid #c31e1e;">EXCLUIR</button>
+                    </div>
+
+                    <!-- Editar - botão -->
+                    <div class="col-6 d-flex justify-content-center">
+                        <button type="submit" id="editar_carro" class="btn btn_borda py-2 mt-3 w-100"
+                            style="color: #00662e; border: 1px solid #00662e">SALVAR</button>
+                    </div>
+
+                </div>
+
                 <!-- DIV Registrar carro -->
                 <div class="w-100" id="div_registrar">
-                    <button type="submit" id="registrar_carro" class="btn btn_borda w-100 py-2 mt-3">REGISTRAR</button>
+                    <button type="button" id="registrar_carro" class="btn btn_borda w-100 py-2 mt-3">REGISTRAR</button>
                 </div>
 
             </form>

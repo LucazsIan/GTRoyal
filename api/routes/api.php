@@ -23,6 +23,7 @@ Route::middleware(Api_Auth::class)->group(function () {
     
     Route::get('/minha_garagem', [CarroController::class, 'minha_garagem']);
     
+    Route::get('/retorna_unico_carro/{id}', [CarroController::class, 'retornar_unico_carro']);
 });
 
 // Autenticação

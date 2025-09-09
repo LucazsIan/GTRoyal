@@ -138,4 +138,24 @@ class CarroController extends Controller
 
         return response()->json(['carros' => $carros], 200);
     }
+
+    //RETORNAR UNICO CARRO DO USUÁRIO
+    public function retornar_unico_carro(Request $request, $id)
+    {
+        $carro = Carro::find($id);
+
+        if (!$carro) {
+            return response()->json(['message' => 'Carro não encontrado'], 404);
+        }
+
+        $id_usuario = $request->id_usuario;
+
+        if ($carro->id_usuario != $id_usuario) {
+            return response()->json(['error' => 'Acesso negado'], 403);
+        }
+
+        $carro->imagem_url = $carro->imagem ? url('img/carros/' . $carro->imagem) : null;
+
+        return response()->json($carro, 200);
+    }
 }

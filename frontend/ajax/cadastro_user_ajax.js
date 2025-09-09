@@ -20,21 +20,18 @@ $(document).ready(function () {
         };
 
         $.ajax({
-            url: "http://127.0.0.1:8000/api/register", // Ajuste para sua rota de cadastro
+            url: "http://127.0.0.1:8000/api/register", 
             method: "POST",
             data: dados,
             success: function (response) {
-                // Feedback de sucesso
                 alert("Cadastro realizado com sucesso!");
-                $("#cadastroForm")[0].reset(); // Limpa formulário
+                $("#cadastroForm")[0].reset();
                 window.location.href = "./login_user.html";
             },
             error: function (xhr) {
                 if (xhr.status === 422) {
-                    // Erros de validação do Laravel
                     let errors = xhr.responseJSON.errors;
 
-                    // Para cada campo com erro
                     $.each(errors, function (key, mensagens) {
                         let errorDiv = $("#" + key + "Error");
                         if (errorDiv.length) {
