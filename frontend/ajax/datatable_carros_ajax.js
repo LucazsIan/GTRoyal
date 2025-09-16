@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  new DataTable("#tabela_carro", {
+  let = tabelaCarros = new DataTable("#tabela_carros", {
     processing: true,
     serverSide: false,
     responsive: true,
@@ -39,15 +39,29 @@ $(document).ready(function () {
           return `
                     <div class="row d-flex">
                         <div class=" col-6">
-                            <button class="btn btn-warning btn-sm alterar" data-id="${data}">Alterar</button>
+                            <button class="btn btn-warning btn-sm alterar_carro" data-id="${data}">Alterar</button>
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-danger btn-sm deletar" data-id="${data}">Excluir</button>
+                            <button class="btn btn-danger btn-sm deletar_carro" data-id="${data}">Excluir</button>
                         </div>
 
                     </div>`;
         },
       },
     ],
+  });
+
+
+  $(document).on('click', '.alterar_carro', function () {
+    let id = $(this).data('id');
+    let ativo = 0;
+    if ($(this).is(':checked')) {
+      ativo = 1;
+    }
+
+    // CHAMAR AJAX
+
+    // LINHA IMPORTANTE PROFESSOR
+    tableCarros.ajax.reload();
   });
 });
