@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Carro;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CarroController extends Controller
 {
@@ -158,5 +159,13 @@ class CarroController extends Controller
         $carro->imagem_url = $carro->imagem ? url('img/carros/' . $carro->imagem) : null;
 
         return response()->json($carro, 200);
+    }
+
+    public function vem_pdf(Request $request)
+    {
+        $data = [];
+        $data['usuarios'] = User::get()->all();
+        $pdf = Pdf::loadView('primeiropdf', $data);
+        return $pdf->download('invoice.pdf');
     }
 }

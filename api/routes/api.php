@@ -31,6 +31,9 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/login', [AuthController::class, 'login']);
 
+// PDF
+Route::post('/pdf', [CarroController::class, 'vem_pdf']);
+
 //Retorna carros
 Route::get('/retorna_carros', [CarroController::class, 'retornar_carros']);
 
