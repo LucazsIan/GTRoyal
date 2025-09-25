@@ -1,5 +1,17 @@
 $(document).ready(function () {
-  let = tabelaCarros = new DataTable("#tabela_carros", {
+
+
+  // Autenticação 
+  let token = localStorage.getItem("user_token");
+  let id_usuario = localStorage.getItem("id_usuario");
+  console.log("User ID:", id_usuario);
+  console.log("Token:", token);
+  var dados = {
+    id_usuario: id_usuario,
+    token: token
+  };
+
+  let tabelaCarros = new DataTable("#tabela_carros", {
     processing: true,
     serverSide: false,
     responsive: true,
@@ -39,29 +51,58 @@ $(document).ready(function () {
           return `
                     <div class="row d-flex">
                         <div class=" col-6">
-                            <button class="btn btn-warning btn-sm alterar_carro" data-id="${data}">Alterar</button>
+                            <button class="btn btn-warning btn-sm edit-car" data-id="${data}">Editar</button>
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-danger btn-sm deletar_carro" data-id="${data}">Excluir</button>
+                            <button class="btn btn-danger btn-sm delete-car" data-id="${data}">Excluir</button>
                         </div>
-
                     </div>`;
         },
       },
     ],
   });
 
-
-  $(document).on('click', '.alterar_carro', function () {
-    let id = $(this).data('id');
-    let ativo = 0;
-    if ($(this).is(':checked')) {
-      ativo = 1;
-    }
-
-    // CHAMAR AJAX
-
-    // LINHA IMPORTANTE PROFESSOR
-    tableCarros.ajax.reload();
+  // REDIRECIONANDO CARRO PARA EDIÇÃO
+  $(document).on("click", ".edit-car", function () {
+    let carId = $(this).data("id");
+    window.location.href = "./registro_carro.html?id=" + carId;
   });
+
+  // EXCLUIR 
+  $(document).on("click", ".delete-car", function (e) {
+
+    e.preventDefault();
+
+    $(".text-danger").text("").removeAttr("aria-invalid");
+
+    let carId = $(this).data("id");
+
+    $.ajax({
+      url: `http://127.0.0.1:8000/api/deleta_carro/${carId}`,
+      method: "DELETE",
+      data: dados,
+      dataType: "json",
+      success: function (carro) {
+ 
+        tabelaCarros.ajax.reload();
+      },
+      error: function (xhr) {
+        console.log(xhr.responseJSON);
+        alert("Erro ao carregar os dados do carro.");
+      }
+    });
+  });
+
+  // $(document).on('click', '.alterar_carro', function () {
+  //   let id = $(this).data('id');
+  //   let ativo = 0;
+  //   if ($(this).is(':checked')) {
+  //     ativo = 1;
+  //   }
+
+  //   // CHAMAR AJAX
+
+  //   // LINHA IMPORTANTE PROFESSOR
+  //   tableCarros.ajax.reload();
+  // });
 });

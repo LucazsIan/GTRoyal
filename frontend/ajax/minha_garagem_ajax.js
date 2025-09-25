@@ -66,6 +66,7 @@ $(document).ready(function () {
         }
     });
 
+    // Redirecionando item clicadi para edição
     $(document).on("click", ".edit-car", function () {
         let carId = $(this).data("id");
         window.location.href = "./registro_carro.html?id=" + carId;
