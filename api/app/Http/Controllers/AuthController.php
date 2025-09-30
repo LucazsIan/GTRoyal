@@ -19,27 +19,18 @@ class AuthController extends Controller
     // Registro
     public function register(Request $request)
     {
-        $fields = $request->validate([
-            'nome' => 'required',
-            'sobrenome' => 'required',
-            'email' => 'required',
-            'telefone' => 'required',
-            'data_nasc' => 'required',
-            'pais' => 'required',
-            'cep' => 'required',
-            'password' => 'required',
-        ]);
+      ;
 
         // Criptografa a senha antes de salvar
         $user = User::create([
-            'nome' => $fields['nome'],
-            'sobrenome' => $fields['sobrenome'],
-            'email' => $fields['email'],
-            'telefone' => $fields['telefone'],
-            'data_nasc' => $fields['data_nasc'],
-            'pais' => $fields['pais'],
-            'cep' => $fields['cep'],
-            'password' => $fields['password'],
+            'nome' => $request->nome,
+            'sobrenome' => $request->sobrenome,
+            'email' => $request->email,
+            'telefone' => $request->telefone,
+            'data_nasc' => $request->data_nasc,
+            'pais' => $request->pais,
+            'cep' => $request->cep,
+            'password' => $request->password,
             'validado' => 'N',
             'codigo' => str(rand(1000, max: 9999))
         ]);
