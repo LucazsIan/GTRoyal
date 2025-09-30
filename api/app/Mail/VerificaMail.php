@@ -17,18 +17,18 @@ use Symfony\Component\Mime\Header\UnstructuredHeader;
 use App\Models\User;
 
 
-class WelcomeMail extends Mailable
+class VerificaMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private string $name;
+    private $user;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(string $name)
+    public function __construct(User $user)
     {
-        $this->name = $name;
+        $this->user = $user;
     }
 
     /**
@@ -41,7 +41,7 @@ class WelcomeMail extends Mailable
             replyTo: [
                       new Address('taylor@example.com', 'Taylor Otwell'),
                   ],
-            subject: 'Welcome Mail',
+            subject: 'Bem-vindo(a)'.$this->user->nome,
             using: [
                       function (Email $email) {
                           // Headers
@@ -71,8 +71,8 @@ class WelcomeMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.welcome-email',
-            with: ['name' => $this->name],
+            view: 'mail.verifica-email',
+            with: ['user' => $this->user],
         );
     }
 
@@ -84,9 +84,7 @@ class WelcomeMail extends Mailable
     public function attachments(): array
     {
         return [
-            Attachment::fromPath('https://mailtrap.io/wp-content/uploads/2021/04/mailtrap-new-logo.svg')
-                ->as('logo.svg')
-                ->withMime('image/svg+xml'),
+           
         ];
     }
 

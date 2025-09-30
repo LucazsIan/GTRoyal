@@ -39,7 +39,11 @@ $(document).ready(function () {
 
                 if (xhr.status === 401) {
                     alert("E-mail ou senha incorretos.");
-                } else {
+                }
+                else if(xhr.status === 400){
+                    alert("E-mail não foi verificado");
+                } 
+                else {
                     alert("Ocorreu um erro. Tente novamente.");
                 }
                 console.log(xhr.responseJSON);

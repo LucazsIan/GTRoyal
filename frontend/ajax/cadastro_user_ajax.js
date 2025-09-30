@@ -1,30 +1,28 @@
 $(document).ready(function () {
     $("#registrar").click(function (e) {
-        e.preventDefault();
+        
 
         $(".text-danger").text("").removeAttr("aria-invalid");
 
         let dados = {
-            nome: $("#nome").val(),
-            sobrenome: $("#sobrenome").val(),
-            email: $("#email").val(),
-            telefone: $("#telefone").val(),
-            data_nasc: $("#data_nascimento").val(),
-            pais: $("#pais").val(),
-            cep: $("#cep").val(),
-            password: $("#password").val(),
-            password_confirmation: $("#password_confirmation").val(),
-            aceito_termos: $("#aceito_termos").is(":checked") ? 1 : 0
+           
         };
 
         $.ajax({
             url: "http://127.0.0.1:8000/api/register",
-            method: "POST",
-            data: dados,
+            type: "POST",
+            data: { nome: $("#nome").val(),
+            sobrenome: $("#sobrenome").val(),
+            email: $("#email").val(),
+            telefone: $("#telefone").val(),
+            data_nasc: '1995-01-01',
+            pais: $("#pais").val(),
+            cep: $("#cep").val(),
+            password: $("#password").val(),
+            password_confirmation: $("#password_confirmation").val()
+        },
             success: function (response) {
-                alert("Cadastro realizado com sucesso!");
-                $("#cadastroForm")[0].reset();
-                window.location.href = "./login_user.html";
+                console.log(response);
             },
             error: function (xhr) {
                 if (xhr.status === 422) {

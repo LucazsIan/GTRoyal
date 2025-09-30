@@ -37,6 +37,9 @@ Route::post('/pdf', [CarroController::class, 'vem_pdf']);
 //Retorna carros
 Route::get('/retorna_carros', [CarroController::class, 'retornar_carros']);
 
+//Verificação de email
+Route::post('/verifica_email/{id}', [AuthController::class, 'verifica_email']);
+
 // Post
 Route::get('/user', function (Request $request) {
     return $request->user();

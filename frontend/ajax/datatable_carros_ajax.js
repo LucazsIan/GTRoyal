@@ -68,6 +68,11 @@ $(document).ready(function () {
     window.location.href = "./registro_carro.html?id=" + carId;
   });
 
+  // REDIRECIONANDO CARRO PARA EDIÇÃO
+  $(document).on("click", ".add-car", function () {
+    window.location.href = "./registro_carro.html";
+  });
+
   // EXCLUIR 
   $(document).on("click", ".delete-car", function (e) {
 
@@ -83,7 +88,7 @@ $(document).ready(function () {
       data: dados,
       dataType: "json",
       success: function (carro) {
- 
+
         tabelaCarros.ajax.reload();
       },
       error: function (xhr) {
