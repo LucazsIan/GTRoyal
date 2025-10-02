@@ -9,7 +9,6 @@ use App\Models\UserToken;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use App\Mail\VerificaMail;
-
 use Illuminate\Support\Facades\Mail;
 use App\Mail\WelcomeMail;
 
@@ -18,8 +17,7 @@ class AuthController extends Controller
 
     // Registro
     public function register(Request $request)
-    {
-      ;
+    {;
 
         // Criptografa a senha antes de salvar
         $user = User::create([
@@ -118,21 +116,14 @@ class AuthController extends Controller
     }
 
     // Verifica email
-    public function verifica_email(Request $request, $id)
+    public function verifica_email(Request $request)
     {
-
         $request->validate([
+            'id' => 'required|exists:users,id',
             'codigo' => 'required'
         ]);
 
-        $user = User::find($id);
-
-        if (!$user) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Usuário não encontrado.'
-            ], 404);
-        }
+        $user = User::find($request->id);
 
         if ($user->codigo != $request->codigo) {
             return response()->json([

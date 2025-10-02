@@ -49,7 +49,7 @@ $(document).ready(function () {
         title: "Ações",
         render: function (data, type, row) {
           return `
-                    <div class="row d-flex">
+                    <div class="row d-flex gap-2">
                         <div class=" col-6">
                             <button class="btn btn-warning btn-sm edit-car" data-id="${data}">Editar</button>
                         </div>
@@ -98,16 +98,27 @@ $(document).ready(function () {
     });
   });
 
-  // $(document).on('click', '.alterar_carro', function () {
-  //   let id = $(this).data('id');
-  //   let ativo = 0;
-  //   if ($(this).is(':checked')) {
-  //     ativo = 1;
-  //   }
 
-  //   // CHAMAR AJAX
-
-  //   // LINHA IMPORTANTE PROFESSOR
-  //   tableCarros.ajax.reload();
-  // });
+  // PDF
+  $("#pdf").on("click", function () {
+    console.log("ENTREI");
+    $.ajax({
+      url: "http://127.0.0.1:8000/api/pdf", // URL para o qual a requisição POST será feita
+      type: "POST", // Método da requisição
+      xhrFields: {
+        responseType: "blob",
+      },
+      data: {},
+      success: function (blob) {
+        console.log(blob.size);
+        var link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.download = "Novo_" + new Date() + ".pdf";
+        link.click();
+      },
+      error: function (xhr, status, error) {
+        alert("Ocorreu um erro ao gerar o PDF.");
+      },
+    });
+  });
 });

@@ -8,6 +8,8 @@ use App\Models\Carro;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 
+
+
 class CarroController extends Controller
 {
 
@@ -161,11 +163,12 @@ class CarroController extends Controller
         return response()->json($carro, 200);
     }
 
+    // PDF
     public function vem_pdf(Request $request)
-    {
-        $data = [];
-        $data['usuarios'] = User::get()->all();
-        $pdf = Pdf::loadView('primeiropdf', $data);
-        return $pdf->download('invoice.pdf');
-    }
+{
+    $data['carros'] = Carro::all(); // Corrigido aqui!
+    
+    $pdf = Pdf::loadView('primeiropdf', $data);
+    return $pdf->download('carros.pdf');
+}
 }

@@ -64,4 +64,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Carro::class, 'id_usuario');
     }
+
+    
+
 }

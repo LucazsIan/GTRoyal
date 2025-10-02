@@ -44,9 +44,10 @@
 
         <p class="mt-3">Clique no botão abaixo para verificação do código:</p>
 
-        <a href="[http://127.0.0.1:8000/verificacodigo" target="_blank" class="btn btn-primary btn-verificar">
-            Verificar Conta
-        </a>
+        <a href="http:/127.0.0.1:8000/verificacodigo/{{ $user->codigo }}" class="btn btn-success">
+    Autentique seu e-mail aqui!
+</a>
+
 
         <p class="mt-4 text-muted" style="font-size: 13px;">Se você não solicitou este e-mail, apenas ignore.</p>
     </div>
