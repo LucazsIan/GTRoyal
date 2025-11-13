@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT Royal - Carros Esportivos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/inicial.css">
+    <link rel="stylesheet" href="css/navbar.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark elegant-navbar fixed-top">
+    <div class="container-fluid px-5">
+      
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <span class="logo-gt">GT</span><span class="logo-royal">ROYAL</span>
+      </a>
+
+      <!-- Toggle Mobile -->
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Itens -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="w-100 d-lg-flex justify-content-between align-items-center mt-3 mt-lg-0">
+          
+          <!-- Menu central -->
+          <ul class="navbar-nav mx-auto gap-lg-4 text-center">
+            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Negócios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Planos</a></li>
+          </ul>
+
+          <!-- Login / Cadastro -->
+          <ul class="navbar-nav text-center d-flex gap-3 mt-3 mt-lg-0">
+            <li class="nav-item"><a class="nav-link destaque" href="#">Login</a></li>
+            <li class="nav-item"><a class="nav-link destaque" href="#">Cadastro</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+    <!-- SESSÃO 1 -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content mt-5">
+                <h1>COMPRAR, VENDER E TROCAR CARROS ESPORTIVOS</h1>
+                <p>Seu próximo carro está a um clique de distância.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Explorar carros</a>
+                    <a href="#" class="btn btn-outline-light">Anunciar meu carro</a>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-6 col-md-3 text-center mb-4">
+                            <a class="nav-link" href="#">
+                                <img id="img1" src="img_inicial/maserati-logo-2020-download.png" alt="Maserati"
+                                    class="img-marca">
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3 text-center mb-4">
+                            <a class="nav-link" href="#">
+                                <img id="img2" src="img_inicial/McLaren-logo-2002-2560x1440.png" alt="McLaren"
+                                    class="img-marca">
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3 text-center mb-4">
+                            <a class="nav-link" href="#">
+                                <img id="img3" src="img_inicial/Pagani_(company)-Logo.wine.png" alt="Pagani"
+                                    class="img-marca">
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3 text-center mb-4">
+                            <a class="nav-link" href="#">
+                                <img id="img4" src="img_inicial/porsche-1-logo-png-transparent.png"
+                                    alt="Porsche" class="img-marca">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SESSÃO 2-->
+    <section class="cars-showcase pt-0">
+
+        <div class="container">
+
+            <h2 class="text-center mb-5">Destaques</h2>
+
+            <!-- Botão esquerda -->
+            <button class="carousel-btn prev ms-4" onclick="moveCarousel(1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div class="carousel-container d-flex justify-content-center">
+
+                <div class="carousel-track" id="carouselTrack">
+
+                    <!-- Card 1 -->
+                    <div class="car-card">
+                        <div class="car-image"
+                            style="background-image: url('https://carrosbemmontados.com.br/wp-content/uploads/2025/01/Mitsubishi-Lancer-Evolution-e1737405797363.jpg');">
+                        </div>
+                        <div class="car-info">
+                            <h3>mitubshi Larcer Evo</h3>
+                            <p class="car-owner">De Lucas Ian</p>
+                            <p class="car-price">R$250.000</p>
+                            <a href="#" class="btn-ver-carro">Ver carro</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="car-card">
+                        <div class="car-image"
+                            style="background-image: url('https://cdn6.campograndenews.com.br/uploads/noticias/2024/08/10/6ba03e2f9d8ccda390d00a3c5b54742fcb9f4188.jpg');">
+                        </div>
+                        <div class="car-info">
+                            <h3>ferrari LaFerrari</h3>
+                            <p class="car-owner">De Lucas Ian</p>
+                            <p class="car-price">R$1.000.000</p>
+                            <a href="#" class="btn-ver-carro">Ver carro</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="car-card">
+                        <div class="car-image"
+                            style="background-image: url('https://maxtondesign.com/data/include/cms/our-projects/Carbon-BMW-M4-Competition/bmwm4_Front.webp');">
+                        </div>
+                        <div class="car-info">
+                            <h3>BMW M3 Competition</h3>
+                            <p class="car-owner">De Lucas Ian</p>
+                            <p class="car-price">R$1.250.000</p>
+                            <a href="#" class="btn-ver-carro">Ver carro</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="car-card">
+                        <div class="car-image"
+                            style="background-image: url('https://www.stuttcars.com/wp-content/uploads/2016/04/collecting-cars-carrera-gt-web-153-1625508489.jpeg');">
+                        </div>
+                        <div class="car-info">
+                            <h3>Porsche Carrera GT</h3>
+                            <p class="car-owner">De Lucas Ian</p>
+                            <p class="car-price">R$1.500.000</p>
+                            <a href="#" class="btn-ver-carro">Ver carro</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="car-card">
+                        <div class="car-image"
+                            style="background-image: url('https://cdn.motor1.com/images/mgl/W89egj/367:0:2188:1642/2023-audi-r8-v10-gt-rwd-exterior.webp');">
+                        </div>
+                        <div class="car-info">
+                            <h3>LAMBORGHINI AVENTADOR</h3>
+                            <p class="car-owner">De Lucas Ian</p>
+                            <p class="car-price">R$2.100.000</p>
+                            <a href="#" class="btn-ver-carro">Ver carro</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="car-card">
+                        <div class="car-image"
+                            style="background-image: url('https://maxtondesign.com/data/include/cms/our-projects/Carbon-BMW-M4-Competition/bmwm4_Front.webp');">
+                        </div>
+                        <div class="car-info">
+                            <h3>LAMBORGHINI AVENTADOR</h3>
+                            <p class="car-owner">De Lucas Ian</p>
+                            <p class="car-price">R$100.000</p>
+                            <a href="#" class="btn-ver-carro">Ver carro</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Botão direita -->
+            <button class="carousel-btn next me-4" onclick="moveCarousel(-1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div class="text-center">
+                <a href="#" class="btn btn-outline-primary btn-ver-mais">Ver mais</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SESSÃO 3 -->
+    <section>
+        <div class="container  d-flex flex-column gap-4 p-4">
+
+            <!-- Filera 1 -->
+            <div class="row">
+
+                <!-- Imagem 1 -->
+                <div class="col-4">
+                    <div class="card">
+                        <img src="img_inicial/porcshe_estrada.jpg" class="card-img-top" alt="Carro 1">
+                        <div class="card-footer">Comprar Agora</div>
+                    </div>
+                </div>
+
+                <!-- Imagem 2 -->
+                <div class="col-8">
+                    <div class="card">
+                        <img src="img_inicial/carros_enfilerados.jpg" class="card-img-top" alt="Carro 2">
+                        <div class="card-footer">Vender Meu Carro</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Filera 2 -->
+            <div class="row" style="min-height: 300px;">
+
+                <!-- Imagem 3 -->
+                <div class="col-4">
+                    <div class="card">
+                        <img src="img_inicial/lambo_motor.jpg" class="card-img-top" alt="Carro 3">
+                        <div class="card-footer">Trocar Veículo</div>
+                    </div>
+                </div>
+
+                <!-- Filtros -->
+                <div class="col-8 d-flex flex-column h-100 px-3 gap-2">
+
+                    <h3 class="mb-3">Filtros rápidos</h3>
+
+                    <!-- Fileira 1 -->
+                    <div class="d-flex flex-column p-0 w-0">
+
+                        <p class="text-white my-1">Destaques</p>
+
+                        <!-- Linha 1 -->
+                        <div class="row justify-content-between">
+
+                            <!-- Filtro 1 -->
+                            <div class="col-4">
+
+                                <div class="d-flex justify-content-center align-items-center rounded-3 py-3 gap-3"
+                                    style="background-color: #0c0a16;">
+                                    <i class="fa-solid fa-2x fa-fire" style="color: #430a6a;"></i>
+                                    <h5 class="mt-1">Mais vendidos</h5>
+                                </div>
+
+                            </div>
+
+                            <!-- Filtro 2 -->
+                            <div class="col-4">
+
+                                <div class="d-flex justify-content-center align-items-center rounded-3 py-3 gap-3"
+                                    style="background-color: #0c0a16;">
+                                    <i class="fa-solid fa-2x fa-fire" style="color: #430a6a;"></i>
+                                    <h5 class="mt-1">Mais vendidos</h5>
+                                </div>
+
+                            </div>
+
+                            <!-- Filtro 3 -->
+                            <div class="col-4">
+
+                                <div class="d-flex justify-content-center align-items-center rounded-3 py-3 gap-3"
+                                    style="background-color: #0c0a16;">
+                                    <i class="fa-solid fa-2x fa-fire" style="color: #430a6a;"></i>
+                                    <h5 class="mt-1">Mais vendidos</h5>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Fileira 2 -->
+                    <div class="d-flex flex-column p-0 w-0 h-100 pt-4">
+
+                        <p class="text-white my-1">Estilo do carro</p>
+
+                        <!-- Linha 2 -->
+                        <div class="row justify-content-between">
+
+                            <!-- Filtro 1 -->
+                            <div class="col-4">
+
+                                <div class="d-flex justify-content-center align-items-center rounded-3 py-3 gap-3"
+                                    style="background-color: #0c0a16;">
+                                    <i class="fa-solid fa-2x fa-fire" style="color: #430a6a;"></i>
+                                    <h5 class="mt-1">Mais vendidos</h5>
+                                </div>
+
+                            </div>
+
+                            <!-- Filtro 2 -->
+                            <div class="col-4">
+
+                                <div class="d-flex justify-content-center align-items-center rounded-3 py-3 gap-3"
+                                    style="background-color: #0c0a16;">
+                                    <i class="fa-solid fa-2x fa-fire" style="color: #430a6a;"></i>
+                                    <h5 class="mt-1">Mais vendidos</h5>
+                                </div>
+
+                            </div>
+
+                            <!-- Filtro 3 -->
+                            <div class="col-4">
+
+                                <div class="d-flex justify-content-center align-items-center rounded-3 py-3 gap-3"
+                                    style="background-color: #0c0a16;">
+                                    <i class="fa-solid fa-2x fa-fire" style="color: #430a6a;"></i>
+                                    <h5 class="mt-1">Mais vendidos</h5>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <footer class="mt-auto">
+        <div class="container">
+            <div class="row g-4 mb-2 cont pb-4">
+                <div class="col-12 text-center text-md-start">
+                    <div class="logo-gtroyal">GT <span class="text-white">ROYAL</span></div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <h5 class="title-reesha">MENU</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#" class="footer-link d-block">Início</a></li>
+                        <li><a href="#" class="footer-link d-block">Negócios</a></li>
+                        <li><a href="#" class="footer-link d-block">Sobre</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <h5 class="title-reesha">CONTATO</h5>
+                    <p class="contact-item"><span class="me-2">📍</span> São Paulo - SP</p>
+                    <p class="contact-item"><span class="me-2">📞</span> (11) 99876-3029</p>
+                    <p class="contact-item"><span class="me-2">✉️</span> gtroyal@gmail.com</p>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <h5 class="title-reesha">SUPORTE</h5>
+                    <p style="font-size: 0.9rem;">Buscamos ajudar você a alcançar seus objetivos.</p>
+                    <form class="mt-2">
+                        <div class="mb-2">
+                            <select class="form-select" aria-label="Método de contato">
+                                <option value="email">E-mail</option>
+                                <option value="phone">Whatsapp</option>
+                            </select>
+                        </div>
+                        <div class="mb-2">
+                            <textarea class="form-control" rows="2"
+                                placeholder="Escreva sua mensagem aqui..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-enviar w-100 w-md-auto">Enviar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2025 GTRoyal - Todos os direitos reservados
+            </div>
+        </div>
+    </footer>
+
+
+    </section>
+
+    <script src="js/inicial.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
