@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comprar | GT Royal</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Seus CSS -->
+    <link rel="stylesheet" href="css/inicial.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+</head>
+
+<body>
+
+    <!-- Seção dos Carros -->
+    <section class="cars-showcase mt-5 pt-4">
+        <div class="container">
+            <h2 class="text-center mb-5"
+                style="color: var(--roxo-lilas); text-transform: uppercase; letter-spacing: 2px;">
+                Todos os Carros Disponíveis
+            </h2>
+
+            <div class="row" id="carrosContainer">
+                <!-- Os cards serão inseridos aqui via AJAX -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Script -->
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "http://127.0.0.1:8000/api/retorna_carros",
+                type: "GET",
+                dataType: "json",
+                success: function (response) {
+                    let carros = response.data;
+                    let container = $("#carrosContainer");
+                    container.empty();
+
+                    if (!carros || carros.length === 0) {
+                        container.append(`<p class="text-center text-white">Nenhum carro encontrado.</p>`);
+                        return;
+                    }
+
+                    carros.forEach(carro => {
+                        let imagem = carro.imagem
+                            ? `http://127.0.0.1:8000/img/carros/${carro.imagem}`
+                            : `https://via.placeholder.com/400x250?text=Sem+Imagem`;
+
+                        let precoFormatado = carro.preco
+                            ? "R$ " + Number(carro.preco).toLocaleString("pt-BR")
+                            : "Preço não informado";
+
+                        let card = `
+              <div class="col-md-4 mb-4">
+                <div class="car-card">
+                  <div class="car-image" style="background-image: url('${imagem}');"></div>
+                  <div class="car-info">
+                    <h3>${carro.marca || "Marca desconhecida"} ${carro.modelo || ""}</h3>
+                    <p class="car-owner"><strong>Cor:</strong> ${carro.cor || "Não informado"}</p>
+                    <p class="car-owner"><strong>Ano:</strong> ${carro.ano_fabricacao || "Não informado"}</p>
+                    <p class="car-price">${precoFormatado}</p>
+                    <a href="#" class="btn-ver-carro">Ver detalhes</a>
+                  </div>
+                </div>
+              </div>`;
+                        container.append(card);
+                    });
+                },
+                error: function (xhr) {
+                    console.error(xhr.responseJSON);
+                    alert("Erro ao carregar os carros.");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
