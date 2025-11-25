@@ -6,6 +6,13 @@ body {
   overflow-x: hidden;
 }
 
+#nav-guest,
+#nav-right-guest,
+#nav-auth,
+#nav-right-auth {
+  display: none;
+}
+
 .text-gradient {
   background: linear-gradient(90deg, #ab5eff, #7b36ff);
   -webkit-background-clip: text;
@@ -106,9 +113,17 @@ body {
 }
 
 /* ====== CORES DE TEXTO ====== */
-.text-accent-purple { color: #ab5eff; }
-.text-accent-blue { color: #3b9eff; }
-.text-accent-gold { color: #ffb84d; }
+.text-accent-purple {
+  color: #ab5eff;
+}
+
+.text-accent-blue {
+  color: #3b9eff;
+}
+
+.text-accent-gold {
+  color: #ffb84d;
+}
 
 /* ====== BOTÕES ====== */
 .btn-glow-purple {

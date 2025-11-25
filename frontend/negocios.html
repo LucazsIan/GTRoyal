@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,9 @@
   <!-- Fontes e Ícones -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Montserrat:wght@400;500;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- CSS -->
@@ -20,43 +23,65 @@
 
 <body>
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark elegant-navbar fixed-top shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark elegant-navbar fixed-top">
     <div class="container-fluid px-5">
+
+      <!-- Logo -->
       <a class="navbar-brand d-flex align-items-center" href="#">
         <span class="logo-gt">GT</span><span class="logo-royal">ROYAL</span>
       </a>
 
+      <!-- Toggle Mobile -->
       <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
         <i class="fas fa-bars"></i>
       </button>
 
+      <!-- Itens -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <div class="w-100 d-lg-flex justify-content-between align-items-center mt-3 mt-lg-0">
-          <ul class="navbar-nav mx-auto gap-lg-4 text-center">
+
+          <!-- Menu central - Guest -->
+          <ul id="nav-guest" class="navbar-nav mx-auto gap-lg-4 text-center">
             <li class="nav-item"><a class="nav-link" href="inicial.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link active" href="negocios.html">Negocios</a></li>
+            <li class="nav-item"><a class="nav-link active" href="negocios.html">Negócios</a></li>
             <li class="nav-item"><a class="nav-link" href="planos.html">Planos</a></li>
           </ul>
-          <ul class="navbar-nav text-center d-flex gap-3 mt-3 mt-lg-0">
+
+          <!-- Menu central - Auth -->
+          <ul id="nav-auth" class="navbar-nav mx-auto gap-lg-4 text-center d-none">
+            <li class="nav-item"><a class="nav-link" href="inicial.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" href="negocios.html">Negócios</a></li>
+            <li class="nav-item"><a class="nav-link" href="minha_garagem.html">Garagem</a></li>
+          </ul>
+
+          <!-- Menu direito - Guest -->
+          <ul id="nav-right-guest" class="navbar-nav text-center d-flex gap-3 mt-3 mt-lg-0">
             <li class="nav-item"><a class="nav-link destaque" href="login_user.html">Login</a></li>
             <li class="nav-item"><a class="nav-link destaque" href="cadastro_user.html">Cadastro</a></li>
           </ul>
+
+          <!-- Menu direito - Auth -->
+          <ul id="nav-right-auth" class="navbar-nav text-center d-flex gap-3 mt-3 mt-lg-0 d-none">
+            <li class="nav-item"><a class="nav-link destaque" href="perfil.html">Perfil</a></li>
+            <li class="nav-item"><a class="nav-link destaque" href="#" onclick="logout()">Sair</a></li>
+          </ul>
+
         </div>
       </div>
     </div>
   </nav>
 
   <!-- SEÇÃO PRINCIPAL -->
-  <section class="carros-section">
-    <div class="container-fluid mt-5 pt-5">
+  <section class="carros-section mt-0 pt-0">
+    <div class="container-fluid mt-5 pt-5 ">
       <div class="row g-4">
         <div class="col-md-4">
           <div class="car-card">
             <img src="img/carro_1.jpg" class="car-img" alt="Carro 1">
             <div class="card-overlay">
               <h3>Comprar Agora</h3>
-              <a href="#" class="btn-card">Explorar</a>
+              <a href="comprar_carro.html" class="btn-card">Explorar</a>
             </div>
           </div>
         </div>
@@ -92,6 +117,10 @@
     </div>
   </footer>
 
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="ajax/logout_ajax.js"></script>
+  <script src="js/navbar.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

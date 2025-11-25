@@ -19,6 +19,7 @@ $(document).ready(function () {
                 localStorage.setItem("userid", response.user.id);
                 console.log("Storage user id:", localStorage.getItem("userid"));
                 alert("Cadastro feito com sucesso!");
+                window.location.href = "./verifica_email.html";
             },
             error: function (xhr) {
 

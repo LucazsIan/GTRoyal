@@ -30,6 +30,8 @@ $(document).on('click', '#verificar', function (e) {
         }),
         success: function (response) {
             alert(response.message);
+            window.location.href = "./login_user.html";
+
         },
         error: function (xhr) {
             var errorMessage = xhr.responseJSON?.message || "Erro inesperado";

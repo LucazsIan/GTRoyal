@@ -33,7 +33,7 @@ $(document).ready(function () {
                 alert("Login feito com sucesso!");
 
                 console.log(response);
-                // window.location.href = "./registro_carro.html";
+                window.location.href = "./inicial.html";
             },
             error: function (xhr) {
 

@@ -24,28 +24,50 @@
 <body class="text-white">
 
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark elegant-navbar fixed-top shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark elegant-navbar fixed-top">
     <div class="container-fluid px-5">
+
+      <!-- Logo -->
       <a class="navbar-brand d-flex align-items-center" href="#">
         <span class="logo-gt">GT</span><span class="logo-royal">ROYAL</span>
       </a>
 
+      <!-- Toggle Mobile -->
       <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
         <i class="fas fa-bars"></i>
       </button>
 
+      <!-- Itens -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <div class="w-100 d-lg-flex justify-content-between align-items-center mt-3 mt-lg-0">
-          <ul class="navbar-nav mx-auto gap-lg-4 text-center">
-            <li class="nav-item"><a class="nav-link active" href="inicial.html">Home</a></li>
+
+          <!-- Menu central - Guest -->
+          <ul id="nav-guest" class="navbar-nav mx-auto gap-lg-4 text-center">
+            <li class="nav-item"><a class="nav-link" href="inicial.html">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="negocios.html">Negócios</a></li>
-            <li class="nav-item"><a class="nav-link" href="planos.html">Planos</a></li>
+            <li class="nav-item"><a class="nav-link active" href="planos.html">Planos</a></li>
           </ul>
-          <ul class="navbar-nav text-center d-flex gap-3 mt-3 mt-lg-0">
+
+          <!-- Menu central - Auth -->
+          <ul id="nav-auth" class="navbar-nav mx-auto gap-lg-4 text-center d-none">
+            <li class="nav-item"><a class="nav-link" href="inicial.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="negocios.html">Negócios</a></li>
+            <li class="nav-item"><a class="nav-link active" href="minha_garagem.html">Garagem</a></li>
+          </ul>
+
+          <!-- Menu direito - Guest -->
+          <ul id="nav-right-guest" class="navbar-nav text-center d-flex gap-3 mt-3 mt-lg-0">
             <li class="nav-item"><a class="nav-link destaque" href="login_user.html">Login</a></li>
             <li class="nav-item"><a class="nav-link destaque" href="cadastro_user.html">Cadastro</a></li>
           </ul>
+
+          <!-- Menu direito - Auth -->
+          <ul id="nav-right-auth" class="navbar-nav text-center d-flex gap-3 mt-3 mt-lg-0 d-none">
+            <li class="nav-item"><a class="nav-link destaque" href="perfil.html">Perfil</a></li>
+            <li class="nav-item"><a class="nav-link destaque" href="#" onclick="logout()">Sair</a></li>
+          </ul>
+
         </div>
       </div>
     </div>
@@ -126,4 +148,5 @@
   <!-- JS Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
