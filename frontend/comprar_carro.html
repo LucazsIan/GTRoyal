@@ -21,6 +21,7 @@
     <!-- Seus CSS -->
     <link rel="stylesheet" href="css/inicial.css" />
     <link rel="stylesheet" href="css/auth.css" />
+    
 </head>
 
 <body>
@@ -39,55 +40,68 @@
         </div>
     </section>
 
-    <!-- Script -->
-    <script>
-        $(document).ready(function () {
-            $.ajax({
-                url: "http://127.0.0.1:8000/api/retorna_carros",
-                type: "GET",
-                dataType: "json",
-                success: function (response) {
-                    let carros = response.data;
-                    let container = $("#carrosContainer");
-                    container.empty();
 
-                    if (!carros || carros.length === 0) {
-                        container.append(`<p class="text-center text-white">Nenhum carro encontrado.</p>`);
-                        return;
-                    }
+    <!-- Modal de Detalhes do Carro -->
+    <!-- Modal -->
+    <div class="modal fade" id="modalCarro" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content modal-carro-content">
 
-                    carros.forEach(carro => {
-                        let imagem = carro.imagem
-                            ? `http://127.0.0.1:8000/img/carros/${carro.imagem}`
-                            : `https://via.placeholder.com/400x250?text=Sem+Imagem`;
-
-                        let precoFormatado = carro.preco
-                            ? "R$ " + Number(carro.preco).toLocaleString("pt-BR")
-                            : "Preço não informado";
-
-                        let card = `
-              <div class="col-md-4 mb-4">
-                <div class="car-card">
-                  <div class="car-image" style="background-image: url('${imagem}');"></div>
-                  <div class="car-info">
-                    <h3>${carro.marca || "Marca desconhecida"} ${carro.modelo || ""}</h3>
-                    <p class="car-owner"><strong>Cor:</strong> ${carro.cor || "Não informado"}</p>
-                    <p class="car-owner"><strong>Ano:</strong> ${carro.ano_fabricacao || "Não informado"}</p>
-                    <p class="car-price">${precoFormatado}</p>
-                    <a href="#" class="btn-ver-carro">Ver detalhes</a>
-                  </div>
+                <div class="modal-header border-0">
+                    <h3 class="modal-title fw-bold text-uppercase" id="carroTitulo"></h3>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-              </div>`;
-                        container.append(card);
-                    });
-                },
-                error: function (xhr) {
-                    console.error(xhr.responseJSON);
-                    alert("Erro ao carregar os carros.");
-                }
-            });
-        });
-    </script>
+
+                <div class="modal-body">
+
+                    <div class="row">
+
+                        <!-- IMAGEM GRANDE -->
+                        <div class="col-lg-6 text-center mb-4">
+                            <div class="carro-img-container">
+                                <img id="carroImg" class="img-fluid" alt="Carro">
+                            </div>
+                        </div>
+
+                        <!-- INFORMAÇÕES -->
+                        <div class="col-lg-6">
+
+                            <div class="info-bloco mb-4">
+                                <h5 class="titulo-bloco">Informações Gerais</h5>
+
+                                <p><strong>Marca:</strong> <span id="carroMarca"></span></p>
+                                <p><strong>Modelo:</strong> <span id="carroModelo"></span></p>
+                                <p><strong>Cor:</strong> <span id="carroCor"></span></p>
+                                <p><strong>Carroceria:</strong> <span id="carroCarroceria"></span></p>
+                                <p><strong>Combustível:</strong> <span id="carroCombustivel"></span></p>
+                            </div>
+
+                            <div class="info-bloco mb-4">
+                                <h5 class="titulo-bloco">Ficha Técnica</h5>
+
+                                <p><strong>Ano de Fabricação:</strong> <span id="carroAno"></span></p>
+                                <p><strong>Preço:</strong> <span id="carroPreco"></span></p>
+                            </div>
+
+                            <div class="text-end">
+                                <button id="btnComprar" class="btn btn-roxo w-100 py-3 fw-semibold fs-5">
+                                    Comprar Agora
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="ajax/comprar_carro_ajax.js"></script>
 </body>
 
 </html>

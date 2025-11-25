@@ -687,3 +687,67 @@
     }
   }
 
+
+/* modal */
+/* --- ESTILIZAÇÃO PREMIUM DA MODAL DO CARRO --- */
+.modal-carro-content {
+    background: #0e0f17; 
+    color: #fff;
+    border-radius: 20px;
+    border: 1px solid #3d0c8c;
+    box-shadow: 0 0 25px rgba(171, 94, 255, 0.4);
+}
+
+.modal-carro-content .modal-header {
+    background: transparent;
+}
+
+.btn-close-white {
+    filter: invert(1);
+}
+
+/* IMAGEM */
+.carro-img-container {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 0 18px rgba(171, 94, 255, 0.4);
+    background: #1a1a27;
+    padding: 10px;
+}
+
+.carro-img-container img {
+    border-radius: 10px;
+}
+
+/* TITULOS DE BLOCO */
+.titulo-bloco {
+    color: var(--roxo-lilas);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* CAIXAS DE INFO */
+.info-bloco {
+    background: #151623;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border-left: 4px solid #7b36ff;
+    box-shadow: 0 0 8px rgba(123, 54, 255, 0.25);
+}
+
+/* BOTÃO ESTILIZADO */
+.btn-roxo {
+    background: linear-gradient(90deg, #ab5eff, #7b36ff);
+    border: none;
+    color: #fff;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.btn-roxo:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(171, 94, 255, 0.6);
+}
+
