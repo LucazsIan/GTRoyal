@@ -34,6 +34,24 @@ body {
   letter-spacing: 1px;
 }
 
+.per-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ab5eff;
+  border-radius: 50%;
+}
+
+.perfil-icone,
+.perfil-icone:visited,
+.perfil-icone:active,
+.perfil-icone:focus,
+.perfil-icone i {
+  color: #ab5eff !important;
+}
+
 .logo-gt {
   color: #ab5eff;
 }

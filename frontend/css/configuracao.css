@@ -1,60 +1,77 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
-body {
-  font-family: "Inter", sans-serif;
-  background-color: #000;
-  color: #d1d5db;
-}
-.subtle-purple-text {
-  color: #bd27ff;
-}
-.subtle-border {
-  border: 1px solid #bd27ff;
-  box-shadow: 0 0 2px #bd27ff;
-}
-.subtle-button {
-  background-color: #bd27ff;
-  box-shadow: 0 0 2px #bd27ff;
-}
-.plan-start-card {
-  border: 2px solid #5d45ff;
-  box-shadow: 0 0 5px #5d45ff;
-}
-.plan-elite-card {
-  border: 2px solid #ff9900;
-  box-shadow: 0 0 5px #ff9900;
-}
-.plan-turbo-card {
-  border: 2px solid #bd27ff;
-  box-shadow: 0 0 5px #bd27ff;
-}
-.plan-button-start {
-  background-color: #5d45ff;
-}
-.plan-button-elite {
-  background-color: #ff9900;
-}
-.plan-button-turbo {
-  background-color: #bd27ff;
-}
-.gt-royal-title {
-  font-family: "Poppins", sans-serif;
-}
-/* Efeito de brilho ao passar o mouse */
-.subtle-border:hover {
-  box-shadow: 0 0 5px #d28cff;
-}
-.subtle-button:hover {
-  box-shadow: 0 0 5px #d28cff;
-}
-.star {
-  cursor: pointer;
-  transition: color 0.2s ease-in-out;
-}
-.star.selected {
-  color: #ffd700; /* Dourado */
-}
-.notification {
-  background-color: #1a1a1a;
-  border-radius: 8px;
-}
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+ body {
+     font-family: 'Inter', sans-serif;
+     background-color: #000;
+     color: #d1d5db;
+ }
+
+ .subtle-purple-text {
+     color: #bd27ff;
+ }
+
+ .subtle-border {
+     border: 2px solid #bd27ff;
+     box-shadow: 0 0 2px #bd27ff;
+ }
+
+ .subtle-button {
+     background-color: #bd27ff;
+     box-shadow: 0 0 2px #bd27ff;
+ }
+
+ .plan-start-card {
+     border: 2px solid #5d45ff;
+     box-shadow: 0 0 5px #5d45ff;
+ }
+
+ .plan-elite-card {
+     border: 2px solid #ff9900;
+     box-shadow: 0 0 5px #ff9900;
+ }
+
+ .plan-turbo-card {
+     border: 2px solid #bd27ff;
+     box-shadow: 0 0 5px #bd27ff;
+ }
+
+ .plan-button-start {
+     background-color: #5d45ff;
+ }
+
+ .plan-button-elite {
+     background-color: #ff9900;
+ }
+
+ .plan-button-turbo {
+     background-color: #bd27ff;
+ }
+
+ .gt-royal-title {
+     font-family: 'Poppins', sans-serif;
+ }
+
+ /* Efeito de brilho ao passar o mouse */
+ .subtle-border:hover {
+     box-shadow: 0 0 5px #d28cff;
+ }
+
+ .subtle-button:hover {
+     box-shadow: 0 0 5px #d28cff;
+ }
+
+ .star {
+     cursor: pointer;
+     transition: color 0.2s ease-in-out;
+ }
+
+ .star.selected {
+     color: #ffd700;
+     /* Dourado */
+ }
+
+ .notification {
+     background-color: #1a1a1a;
+     border-radius: 8px;
+ }

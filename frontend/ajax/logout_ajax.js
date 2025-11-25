@@ -1,4 +1,5 @@
 function logout() {
+    console.log("Llslslsl")
 
     let token = localStorage.getItem("user_token");
     let id_usuario = localStorage.getItem("id_usuario");

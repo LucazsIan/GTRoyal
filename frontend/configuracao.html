@@ -7,10 +7,10 @@
     <title>Configurações</title>
     <!-- Inclui o Tailwind CSS para o estilo -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- CSS -->
-    <link rel="stylesheet" href="configuracao.css">
-    <!-- JS -->
-    <script src="configuracao.js"></script>
+    <link rel="stylesheet" href="css/configuracao.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="ajax/logout_ajax.js"></script>
+    <script src="js/configuracao.js"></script>
 </head>
 
 <body class="bg-black flex flex-col items-center justify-center min-h-screen p-4">
@@ -31,7 +31,7 @@
             </h1>
             <!-- Ícone de perfil -->
             <a href="#" class="p-2 subtle-border rounded-full transition-all duration-300 transform hover:scale-110">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white rounded-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -303,8 +303,8 @@
 
         <!-- Botão Sair da Conta -->
         <div class="mt-8 flex justify-center">
-            <button id="logout-button"
-                class="w-full max-w-xs py-4 px-6 rounded-xl text-lg font-bold text-white subtle-button transition-all duration-300 transform hover:scale-105">
+            <button id="logout-button" onclick="logout()"
+                class="bg-danger w-full max-w-xs py-4 px-6 rounded-xl text-lg font-bold text-white subtle-button transition-all duration-300 transform hover:scale-105">
                 Sair da Conta
             </button>
         </div>
@@ -315,6 +315,7 @@
     <div id="message-box"
         class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-gray-800 text-white py-2 px-4 rounded-lg shadow-lg opacity-0 transition-opacity duration-300">
     </div>
+
 </body>
 
 </html>
